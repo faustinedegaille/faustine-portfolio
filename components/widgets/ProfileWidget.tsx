@@ -6,18 +6,18 @@ import { Button } from "@/components/ui/button"
 export function ProfileWidget() {
   return (
     <Card className="h-full rounded-3xl border-white/60 bg-white/70 backdrop-blur overflow-hidden">
-      <CardHeader className="pb-2">
+      <CardHeader className="py-1.5">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-base">Profil</CardTitle>
-          <div className="flex items-center gap-2 rounded-full border border-black/5 bg-white/60 px-3 py-1 text-xs">
+          <CardTitle className="text-sm font-medium">Profil</CardTitle>
+          <div className="flex items-center gap-2 rounded-full border border-black/5 bg-white/60 px-2.5 py-0.5 text-[11px]">
             <span className="h-2 w-2 rounded-full bg-emerald-500" />
             Disponible
           </div>
         </div>
       </CardHeader>
 
-      <CardContent className="flex h-[calc(100%-44px)] flex-col gap-3 overflow-auto">
-        <div className="grid grid-cols-[180px_1fr] gap-3">
+      <CardContent className="flex flex-col gap-2 pb-2">
+        <div className="grid grid-cols-[150px_1fr] gap-3">
           <div className="relative aspect-square overflow-hidden rounded-2xl ring-1 ring-black/10">
             <Image
               src="/images/avatar.png"
@@ -29,28 +29,38 @@ export function ProfileWidget() {
           </div>
 
           <div className="flex flex-col">
-            <p className="text-sm font-semibold">
+            <p className="text-sm font-semibold leading-tight">
               Développeuse front-end · Web designer
             </p>
 
-            <div className="mt-1">
-              <p className="text-xs font-medium">BUT MMI (3ᵉ année)</p>
-              <p className="text-xs text-muted-foreground">IUT de Troyes</p>
+            <div className="mt-0.5">
+              <p className="text-xs font-medium leading-tight">
+                BUT MMI (3ᵉ année)
+              </p>
+              <p className="text-xs text-muted-foreground leading-tight">
+                IUT de Troyes
+              </p>
             </div>
 
-            <Button asChild size="sm" className="mt-auto rounded-full">
-              <a href="/docs/CV_DEGAILLE.pdf" target="_blank">
+            <Button
+              asChild
+              size="sm"
+              className="mt-auto h-8 rounded-full px-3 text-xs"
+            >
+              <a href="/docs/CV_DEGAILLE.pdf" target="_blank" rel="noreferrer">
                 Télécharger le CV
               </a>
             </Button>
           </div>
         </div>
 
-        <Separator />
+        <Separator className="my-1" />
 
-        <div className="rounded-xl bg-black/3 p-3">
-          <p className="text-sm font-semibold">Alternance chez Altermaker</p>
-          <p className="text-xs text-muted-foreground">
+        <div className="rounded-xl bg-black/3 p-2">
+          <p className="text-sm font-semibold leading-tight">
+            Alternance chez Altermaker
+          </p>
+          <p className="text-xs text-muted-foreground leading-tight">
             Développement front-end
           </p>
         </div>
