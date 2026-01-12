@@ -11,7 +11,7 @@ export function SelectedWorkWidget() {
         {[...Array(4)].map((_, i) => (
           <div
             key={i}
-            className="aspect-[4/3] rounded-2xl bg-black/4"
+            className="aspect-[5/2.25] rounded-2xl bg-black/4"
           />
         ))}
       </CardContent>
