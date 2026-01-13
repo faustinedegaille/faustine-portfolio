@@ -17,67 +17,23 @@ import {
 } from "react-icons/si"
 
 const skills = [
-  {
-    icon: SiNextdotjs,
-    title: "Next.js",
-    subtitle: "App Router · React framework",
-    cta: "Voir les projets →",
-  },
-  {
-    icon: SiNuxtdotjs,
-    title: "Nuxt",
-    subtitle: "Vue framework · SSR / SSG",
-    cta: "Voir les projets →",
-  },
-  {
-    icon: SiJavascript,
-    title: "JavaScript",
-    subtitle: "ES6+",
-    cta: "Voir les projets →",
-  },
-  {
-    icon: SiTypescript,
-    title: "TypeScript",
-    subtitle: "Typed JavaScript",
-    cta: "Voir les projets →",
-  },
-  {
-    icon: SiSass,
-    title: "Sass",
-    subtitle: "CSS preprocessor",
-    cta: "Voir les projets →",
-  },
-  {
-    icon: SiTailwindcss,
-    title: "Tailwind CSS",
-    subtitle: "Utility-first CSS",
-    cta: "Voir les projets →",
-  },
-  {
-    icon: SiFigma,
-    title: "Figma",
-    subtitle: "UI · UX",
-    cta: "Voir les travaux →",
-  },
-  {
-    icon: SiAdobe,
-    title: "Adobe Suite",
-    subtitle: "Design & motion",
-    cta: "Voir les travaux →",
-  },
-  {
-    icon: SiDocker,
-    title: "Docker",
-    subtitle: "Local environments",
-  },
-  {
-    icon: SiGithub,
-    title: "GitHub",
-    subtitle: "Version control",
-  },
+  { icon: SiNextdotjs, title: "next.js", label: "Next.js", cta: "Voir les projets →" },
+  { icon: SiNuxtdotjs, title: "nuxt", label: "Nuxt", cta: "Voir les projets →" },
+  { icon: SiJavascript, title: "javascript", label: "JavaScript", cta: "Voir les projets →" },
+  { icon: SiTypescript, title: "typescript", label: "TypeScript", cta: "Voir les projets →" },
+  { icon: SiSass, title: "sass", label: "Sass", cta: "Voir les projets →" },
+  { icon: SiTailwindcss, title: "tailwind", label: "Tailwind CSS", cta: "Voir les projets →" },
+  { icon: SiFigma, title: "figma", label: "Figma", cta: "Voir les travaux →" },
+  { icon: SiAdobe, title: "adobe", label: "Adobe Suite", cta: "Voir les travaux →" },
+  { icon: SiDocker, title: "docker", label: "Docker" },
+  { icon: SiGithub, title: "github", label: "GitHub" },
 ]
 
-export function SkillsWidget({ onCtaClick }: { onCtaClick: () => void }) {
+export function SkillsWidget({
+  onCtaClick,
+}: {
+  onCtaClick: (skill: string) => void
+}) {
   const [active, setActive] = useState<string | null>(null)
 
   return (
@@ -98,28 +54,13 @@ export function SkillsWidget({ onCtaClick }: { onCtaClick: () => void }) {
               onHoverEnd={() => setActive(null)}
               whileHover={{ y: -2 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className={`
-                relative
-                flex items-center justify-between
-                rounded-2xl px-4 py-3
-                bg-white
-                shadow-[0_1px_6px_rgba(0,0,0,0.06)]
-                transition-opacity
-                cursor-pointer
-                ${isDimmed ? "opacity-40" : "opacity-100"}
-              `}
+              className={`relative flex items-center justify-between rounded-2xl px-4 py-3 bg-white shadow-[0_1px_6px_rgba(0,0,0,0.06)] cursor-pointer transition-opacity ${isDimmed ? "opacity-40" : "opacity-100"}`}
             >
-              <div className="flex items-center gap-3 min-w-0">
+              <div className="flex items-center gap-3">
                 <div className="flex h-9 w-9 items-center justify-center rounded-full bg-black/5">
                   <s.icon className="text-base" />
                 </div>
-
-                <div className="min-w-0">
-                  <p className="truncate text-sm font-medium">{s.title}</p>
-                  <p className="truncate text-xs text-muted-foreground">
-                    {s.subtitle}
-                  </p>
-                </div>
+                <p className="text-sm font-medium">{s.label}</p>
               </div>
 
               <AnimatePresence>
@@ -129,11 +70,11 @@ export function SkillsWidget({ onCtaClick }: { onCtaClick: () => void }) {
                     initial={{ opacity: 0, x: -6 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -6 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="ml-4 shrink-0 whitespace-nowrap text-xs font-medium text-black/60 hover:text-black/80"
+                    transition={{ duration: 0.2 }}
+                    className="text-xs font-medium text-black/60 hover:text-black/80"
                     onClick={(e) => {
                       e.stopPropagation()
-                      onCtaClick()
+                      onCtaClick(s.title)
                     }}
                   >
                     {s.cta}
