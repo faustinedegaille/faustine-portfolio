@@ -7,11 +7,11 @@ export function SelectedWorkWidget() {
         <CardTitle className="text-base">Selected work</CardTitle>
       </CardHeader>
 
-      <CardContent className="grid h-[calc(100%-44px)] grid-cols-2 gap-3 overflow-auto">
+      <CardContent className="grid grid-cols-2 gap-3">
         {[...Array(4)].map((_, i) => (
           <div
             key={i}
-            className="aspect-[5/2.25] rounded-2xl bg-black/4"
+            className="aspect-[5/1.75] rounded-2xl bg-black/4"
           />
         ))}
       </CardContent>
