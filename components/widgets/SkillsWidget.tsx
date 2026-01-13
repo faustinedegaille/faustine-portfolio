@@ -77,7 +77,7 @@ const skills = [
   },
 ]
 
-export function SkillsWidget() {
+export function SkillsWidget({ onCtaClick }: { onCtaClick: () => void }) {
   const [active, setActive] = useState<string | null>(null)
 
   return (
@@ -124,15 +124,20 @@ export function SkillsWidget() {
 
               <AnimatePresence>
                 {isActive && s.cta && (
-                  <motion.div
+                  <motion.button
+                    type="button"
                     initial={{ opacity: 0, x: -6 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -6 }}
                     transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="ml-4 shrink-0 whitespace-nowrap text-xs font-medium text-black/60"
+                    className="ml-4 shrink-0 whitespace-nowrap text-xs font-medium text-black/60 hover:text-black/80"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      onCtaClick()
+                    }}
                   >
                     {s.cta}
-                  </motion.div>
+                  </motion.button>
                 )}
               </AnimatePresence>
             </motion.div>

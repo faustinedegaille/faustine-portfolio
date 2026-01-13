@@ -123,3 +123,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+button,
+a,
+[role="button"],
+[role="link"],
+[tabindex]:not([tabindex="-1"]) {
+  cursor: pointer;
+}
+
