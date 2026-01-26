@@ -18,5 +18,15 @@ export const projects: Project[] = [
     thumbnail: "/projects/parc-des-marais.png",
     status: "done",
   },
+  {
+    id: "bookmood",
+    title: "BookMood",
+    description:
+      "Application de recommandation de livres basée sur l'humeur de l'utilisateur.",
+    tags: ["nuxt", "typescript", "tailwind"],
+    link: "http://mmi23h04.mmi-troyes.fr/portfolio/bookmood/",
+    thumbnail: "/projects/bookmood.png",
+    status: "done",
+  },
 ]
   
