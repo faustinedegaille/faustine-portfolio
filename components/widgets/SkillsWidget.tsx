@@ -37,12 +37,12 @@ export function SkillsWidget({
   const [active, setActive] = useState<string | null>(null)
 
   return (
-    <Card className="h-full rounded-3xl border-white/60 bg-white/70 backdrop-blur overflow-hidden">
-      <CardHeader className="pb-2">
+    <Card className="h-full flex flex-col rounded-3xl border-white/60 bg-white/70 backdrop-blur overflow-hidden">
+      <CardHeader className="shrink-0">
         <CardTitle className="text-base">Compétences</CardTitle>
       </CardHeader>
 
-      <CardContent className="h-[calc(100%-44px)] overflow-auto space-y-2">
+      <CardContent className="flex flex-col gap-2 flex-1 min-h-0 overflow-auto">
         {skills.map((s) => {
           const isActive = active === s.title
           const isDimmed = active && !isActive
@@ -54,10 +54,10 @@ export function SkillsWidget({
               onHoverEnd={() => setActive(null)}
               whileHover={{ y: -2 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className={`relative flex items-center justify-between rounded-2xl px-4 py-3 bg-white shadow-[0_1px_6px_rgba(0,0,0,0.06)] cursor-pointer transition-opacity ${isDimmed ? "opacity-40" : "opacity-100"}`}
+              className={`relative flex items-center justify-between rounded-2xl px-3 py-2.5 bg-white shadow-[0_1px_6px_rgba(0,0,0,0.06)] cursor-pointer transition-opacity ${isDimmed ? "opacity-40" : "opacity-100"}`}
             >
-              <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-black/5">
+              <div className="flex items-center gap-2.5">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black/5">
                   <s.icon className="text-base" />
                 </div>
                 <p className="text-sm font-medium">{s.label}</p>

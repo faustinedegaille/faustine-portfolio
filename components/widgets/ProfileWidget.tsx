@@ -1,24 +1,25 @@
+"use client"
+
 import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
 
 export function ProfileWidget() {
   return (
-    <Card className="h-full rounded-3xl border-white/60 bg-white/70 backdrop-blur overflow-hidden">
-      <CardHeader className="py-1.5">
+    <Card className="h-full flex flex-col rounded-3xl border-white/60 bg-white/70 backdrop-blur overflow-hidden">
+      <CardHeader className="shrink-0">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-sm font-medium">Profil</CardTitle>
-          <div className="flex items-center gap-2 rounded-full border border-black/5 bg-white/60 px-2.5 py-0.5 text-[11px]">
-            <span className="h-2 w-2 rounded-full bg-emerald-500" />
+          <CardTitle className="text-lg">Profil</CardTitle>
+          <div className="flex items-center gap-2 rounded-full border border-black/5 bg-white/60 px-3 py-1 text-sm">
+            <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
             Disponible
           </div>
         </div>
       </CardHeader>
 
-      <CardContent className="flex flex-col gap-2 pb-2">
-        <div className="grid grid-cols-[150px_1fr] gap-3">
-          <div className="relative aspect-square overflow-hidden rounded-2xl ring-1 ring-black/10">
+      <CardContent className="flex-1 min-h-0 px-6 pb-6">
+        <div className="grid h-full grid-cols-[220px_1fr] gap-6">
+          <div className="relative h-full overflow-hidden rounded-3xl ring-1 ring-black/10">
             <Image
               src="/images/avatar.png"
               alt="Avatar"
@@ -28,41 +29,55 @@ export function ProfileWidget() {
             />
           </div>
 
-          <div className="flex flex-col">
-            <p className="text-sm font-semibold leading-tight">
-              Développeuse front-end · Web designer
-            </p>
-
-            <div className="mt-0.5">
-              <p className="text-xs font-medium leading-tight">
-                BUT MMI (3ᵉ année)
+          <div className="flex h-full flex-col justify-between">
+            <div className="space-y-3">
+              <p className="text-2xl font-semibold leading-tight">
+                Développeuse front-end
+                <br />
+                Web designer
               </p>
-              <p className="text-xs text-muted-foreground leading-tight">
-                IUT de Troyes
+
+              <div className="space-y-0.5">
+                <p className="text-base font-medium">
+                  BUT MMI · 3ᵉ année
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  IUT de Troyes
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-2 pt-1">
+                <span className="rounded-full bg-black/5 px-4 py-1.5 text-sm font-medium">
+                  Alternance · Altermaker
+                </span>
+                <span className="rounded-full bg-black/5 px-4 py-1.5 text-sm text-muted-foreground">
+                  Développement front-end
+                </span>
+              </div>
+
+              <p className="text-sm leading-relaxed text-muted-foreground max-w-md">
+                Je travaille en alternance chez Altermaker à Troyes sur le
+                développement de logiciels d’écoconception, principalement en
+                Next.js, avec une approche orientée performance, accessibilité
+                et impact environnemental.
               </p>
             </div>
 
-            <Button
-              asChild
-              size="sm"
-              className="mt-auto h-8 rounded-full px-3 text-xs"
-            >
-              <a href="/docs/CV_DEGAILLE.pdf" target="_blank" rel="noreferrer">
-                Télécharger le CV
-              </a>
-            </Button>
+            <div className="pt-4">
+              <Button
+                size="lg"
+                className="h-11 w-full rounded-full text-base"
+              >
+                <a
+                  href="/docs/CV_DEGAILLE.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Télécharger le CV
+                </a>
+              </Button>
+            </div>
           </div>
-        </div>
-
-        <Separator className="my-1" />
-
-        <div className="rounded-xl bg-black/3 p-2">
-          <p className="text-sm font-semibold leading-tight">
-            Alternance chez Altermaker
-          </p>
-          <p className="text-xs text-muted-foreground leading-tight">
-            Développement front-end
-          </p>
         </div>
       </CardContent>
     </Card>

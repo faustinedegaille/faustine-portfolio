@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, ArrowUpRight } from "lucide-react";
-import { SiGithub, SiLinkedin } from "react-icons/si";
-import { motion } from "framer-motion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Mail, ArrowUpRight } from "lucide-react"
+import { SiGithub, SiLinkedin } from "react-icons/si"
+import { motion } from "framer-motion"
 
 export function ContactWidget() {
   return (
@@ -13,30 +13,30 @@ export function ContactWidget() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
     >
-      <Card className="h-full rounded-3xl border-white/60 bg-white/70 backdrop-blur overflow-hidden">
-        <CardHeader className="pb-2">
+      <Card className="h-full flex flex-col rounded-3xl border-white/60 bg-white/70 backdrop-blur overflow-hidden">
+        <CardHeader className="shrink-0">
           <CardTitle className="text-base">Contact</CardTitle>
         </CardHeader>
 
-        <CardContent className="flex h-[calc(100%-44px)] flex-col gap-4">
+        <CardContent className="flex flex-col gap-2.5 flex-1 min-h-0">
           <motion.a
             href="mailto:faustinedegaille59@gmail.com"
             whileHover={{ y: -2 }}
             transition={{ duration: 0.2 }}
-            className="flex items-center gap-3 rounded-xl border border-black/5 bg-white/60 p-3"
+            className="flex items-center gap-2.5 rounded-xl border border-black/5 bg-white/60 px-2.5 py-2"
           >
-            <div className="flex h-9 w-9 items-center justify-center rounded-full border border-black/5 bg-white/70">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full border border-black/5 bg-white/70">
               <Mail className="h-4 w-4" />
             </div>
-            <div>
+            <div className="min-w-0">
               <p className="text-xs text-muted-foreground">Email</p>
-              <p className="text-sm font-medium">
+              <p className="text-sm font-medium truncate">
                 faustinedegaille59@gmail.com
               </p>
             </div>
           </motion.a>
 
-          <div className="grid flex-1 grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-2.5 flex-1 min-h-0">
             <SocialCard
               href="https://github.com/faustinedegaille"
               label="GitHub"
@@ -56,7 +56,7 @@ export function ContactWidget() {
         </CardContent>
       </Card>
     </motion.div>
-  );
+  )
 }
 
 function SocialCard({
@@ -66,11 +66,11 @@ function SocialCard({
   bg,
   icon,
 }: {
-  href: string;
-  label: string;
-  value: string;
-  bg: string;
-  icon: React.ReactNode;
+  href: string
+  label: string
+  value: string
+  bg: string
+  icon: React.ReactNode
 }) {
   return (
     <motion.a
@@ -78,18 +78,13 @@ function SocialCard({
       target="_blank"
       whileHover={{ y: -4 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
-      className={`relative flex flex-col justify-between rounded-2xl p-4 text-white ${bg}`}
+      className={`relative flex flex-col justify-between rounded-2xl p-3 text-white h-full ${bg}`}
     >
-      <motion.div
-        initial={{ opacity: 1, scale: 1 }}
-        whileHover={{ scale: 1.08 }}
-        transition={{ duration: 0.2, ease: "easeOut" }}
-        className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/85 text-black"
-      >
+      <div className="absolute right-2.5 top-2.5 flex h-8 w-8 items-center justify-center rounded-full bg-white/85 text-black">
         <ArrowUpRight className="h-4 w-4" />
-      </motion.div>
+      </div>
 
-      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/20">
+      <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/20">
         {icon}
       </div>
 
@@ -98,5 +93,5 @@ function SocialCard({
         <p className="text-xs text-white/75">{value}</p>
       </div>
     </motion.a>
-  );
+  )
 }
