@@ -30,7 +30,7 @@ export function ProfileWidget() {
           </div>
 
           <div className="flex h-full flex-col justify-between">
-            <div className="space-y-3">
+            <div className="space-y-2">
               <p className="text-2xl font-semibold leading-tight">
                 Développeuse front-end
                 <br />
@@ -46,7 +46,7 @@ export function ProfileWidget() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-2 pt-1">
+              <div className="flex flex-wrap gap-2 pt-2">
                 <span className="rounded-full bg-black/5 px-4 py-1.5 text-sm font-medium">
                   Alternance · Altermaker
                 </span>
@@ -54,13 +54,6 @@ export function ProfileWidget() {
                   Développement front-end
                 </span>
               </div>
-
-              <p className="text-sm leading-relaxed text-muted-foreground max-w-md">
-                Je travaille en alternance chez Altermaker à Troyes sur le
-                développement de logiciels d’écoconception, principalement en
-                Next.js, avec une approche orientée performance, accessibilité
-                et impact environnemental.
-              </p>
             </div>
 
             <div className="pt-4">
