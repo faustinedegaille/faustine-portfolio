@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowUpRight } from "lucide-react"
 import { SiGithub, SiLinkedin } from "react-icons/si"
@@ -7,6 +8,38 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 
 export function ContactWidget() {
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState(false)
+
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setLoading(true)
+    setSuccess(false)
+    setError(false)
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, message }),
+    })
+
+    setLoading(false)
+
+    if (res.ok) {
+      setSuccess(true)
+      setName("")
+      setEmail("")
+      setMessage("")
+    } else {
+      setError(true)
+    }
+  }
+
   return (
     <motion.div
       className="h-full"
@@ -19,7 +52,7 @@ export function ContactWidget() {
           <CardTitle className="text-lg">Contact</CardTitle>
         </CardHeader>
 
-<CardContent className="flex flex-col gap-4 flex-1 min-h-0 overflow-auto overflow-x-hidden overflow-y-visible pt-2">
+        <CardContent className="flex flex-col gap-4 flex-1 min-h-0 overflow-auto overflow-y-visible pt-2">
           <div className="grid grid-cols-2 gap-3">
             <SocialCard
               href="https://github.com/faustinedegaille"
@@ -28,7 +61,6 @@ export function ContactWidget() {
               bg="bg-black"
               icon={<SiGithub className="h-5 w-5 text-white" />}
             />
-
             <SocialCard
               href="https://www.linkedin.com/in/faustine-degaille"
               label="LinkedIn"
@@ -38,56 +70,63 @@ export function ContactWidget() {
             />
           </div>
 
-          <div className="mt-2 flex flex-col gap-2">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-2">
             <p className="text-sm font-medium">Laisser un message</p>
 
             <div className="grid grid-cols-2 gap-2">
               <input
-                type="text"
-                placeholder="Nom - Prénom"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Nom-Prénom"
+                required
                 className="h-10 rounded-xl border border-black/5 bg-white/70 px-3 text-sm outline-none focus:ring-2 focus:ring-black/10"
               />
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
+                required
                 className="h-10 rounded-xl border border-black/5 bg-white/70 px-3 text-sm outline-none focus:ring-2 focus:ring-black/10"
               />
             </div>
 
             <textarea
-              placeholder="Votre message…"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Ton message…"
+              required
               className="min-h-[80px] rounded-xl border border-black/5 bg-white/70 px-3 py-2 text-sm resize-none outline-none focus:ring-2 focus:ring-black/10"
             />
 
-            <Button className="mt-1 h-10 rounded-full text-sm">
-              Envoyer le message
+            <Button type="submit" disabled={loading} className="mt-1 h-10 rounded-full text-sm">
+              {loading ? "Envoi…" : "Envoyer le message"}
             </Button>
-          </div>
+
+            {success && (
+              <p className="text-sm text-emerald-600">
+                Message envoyé avec succès
+              </p>
+            )}
+
+            {error && (
+              <p className="text-sm text-red-600">
+                Une erreur est survenue. Réessaie plus tard.
+              </p>
+            )}
+          </form>
         </CardContent>
       </Card>
     </motion.div>
   )
 }
 
-function SocialCard({
-  href,
-  label,
-  value,
-  bg,
-  icon,
-}: {
-  href: string
-  label: string
-  value: string
-  bg: string
-  icon: React.ReactNode
-}) {
+function SocialCard({ href, label, value, bg, icon }: any) {
   return (
     <motion.a
       href={href}
       target="_blank"
       whileHover={{ y: -4 }}
-      transition={{ duration: 0.25, ease: "easeOut" }}
       className={`relative flex flex-col justify-between rounded-2xl p-4 text-white ${bg}`}
     >
       <div className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/85 text-black">
