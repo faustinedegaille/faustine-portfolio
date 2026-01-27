@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { ProfileWidget } from "@/components/widgets/ProfileWidget"
 import { SelectedWorkWidget } from "@/components/widgets/SelectedWorkWidget"
 import { SkillsWidget } from "@/components/widgets/SkillsWidget"
@@ -9,6 +9,41 @@ import { FocusWidget } from "@/components/widgets/FocusWidget"
 
 export default function Home() {
   const [focusSkill, setFocusSkill] = useState<string | null>(null)
+
+  const handleOpenFocus = useCallback((skill: string) => {
+    setFocusSkill(skill)
+    window.history.pushState({ focusSkill: skill }, "", `#${skill}`)
+  }, [])
+
+  const handleCloseFocus = useCallback(() => {
+    setFocusSkill(null)
+    if (window.location.hash) {
+      window.history.pushState(null, "", window.location.pathname)
+    }
+  }, [])
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const hash = window.location.hash.slice(1)
+      if (hash) {
+        setFocusSkill(hash)
+      } else {
+        setFocusSkill(null)
+      }
+    }
+
+    window.addEventListener("popstate", handlePopState)
+
+    // Check initial hash on mount
+    const initialHash = window.location.hash.slice(1)
+    if (initialHash) {
+      setFocusSkill(initialHash)
+    }
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState)
+    }
+  }, [])
 
   return (
     <main className="h-dvh bg-[#f6f7fb] px-4 py-4">
@@ -26,7 +61,7 @@ export default function Home() {
             <div className="col-span-2 row-span-2 h-full">
               <FocusWidget
                 skill={focusSkill}
-                onClose={() => setFocusSkill(null)}
+                onClose={handleCloseFocus}
               />
             </div>
           ) : (
@@ -38,7 +73,7 @@ export default function Home() {
                 <SelectedWorkWidget />
               </div>
               <div className="h-full">
-                <SkillsWidget onCtaClick={setFocusSkill} />
+                <SkillsWidget onCtaClick={handleOpenFocus} />
               </div>
               <div className="h-full">
                 <ContactWidget />

@@ -5,6 +5,7 @@ export type Project = {
   tags: string[]
   link?: string
   thumbnail?: string
+  images?: string[]
   status?: "done" | "in-progress"
 }
 
@@ -27,6 +28,21 @@ export const projects: Project[] = [
     link: "http://mmi23h04.mmi-troyes.fr/portfolio/bookmood/",
     thumbnail: "/projects/bookmood.png",
     status: "done",
+  },
+  {
+    id: "questionnaire-app",
+    title: "Application Questionnaire",
+    description:
+      "Application de création et gestion de questionnaires.",
+    tags: ["next.js", "typescript", "tailwind"],
+    thumbnail: "/projects/creation-projet.PNG",
+    images: [
+      "/projects/creation-projet.PNG",
+      "/projects/projects-card.PNG",
+      "/projects/questionnaire.PNG",
+      "/projects/questionnaire-NSP.PNG",
+    ],
+    status: "in-progress",
   },
 ]
   
