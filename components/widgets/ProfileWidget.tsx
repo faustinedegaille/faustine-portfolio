@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
@@ -17,9 +18,9 @@ export function ProfileWidget() {
         </div>
       </CardHeader>
 
-      <CardContent className="flex-1 min-h-0 px-4 md:px-6 pb-4 md:pb-6">
-        <div className="grid h-full grid-cols-[100px_1fr] md:grid-cols-[180px_1fr] lg:grid-cols-[220px_1fr] gap-3 md:gap-4 lg:gap-6">
-          <div className="relative h-full min-h-[140px] overflow-hidden rounded-2xl md:rounded-3xl ring-1 ring-black/10">
+      <CardContent className="flex-1 min-h-0 px-4 md:px-6 pb-2 md:pb-3 overflow-y-auto">
+        <div className="grid grid-cols-[100px_1fr] md:grid-cols-[180px_1fr] lg:grid-cols-[220px_1fr] gap-3 md:gap-4 lg:gap-6">
+          <div className="relative min-h-[140px] md:min-h-[180px] overflow-hidden rounded-2xl md:rounded-3xl ring-1 ring-black/10">
             <Image
               src="/images/avatar.png"
               alt="Avatar"
@@ -29,7 +30,7 @@ export function ProfileWidget() {
             />
           </div>
 
-          <div className="flex h-full flex-col justify-between">
+          <div className="flex flex-col gap-2">
             <div className="space-y-1.5 md:space-y-2">
               <p className="text-lg md:text-xl lg:text-2xl font-semibold leading-tight">
                 Développeuse front-end
@@ -56,18 +57,19 @@ export function ProfileWidget() {
               </div>
             </div>
 
-            <div className="pt-3 md:pt-4">
+            <div className="pt-1 md:pt-2">
               <Button
+                asChild
                 size="default"
-                className="h-9 md:h-11 w-full rounded-full text-sm md:text-base"
+                className="h-9 md:h-11 w-full rounded-full text-sm md:text-base border-0 shadow-none"
               >
-                <a
+                <Link
                   href="/docs/CV_DEGAILLE.pdf"
                   target="_blank"
                   rel="noreferrer"
                 >
                   Télécharger le CV
-                </a>
+                </Link>
               </Button>
             </div>
           </div>

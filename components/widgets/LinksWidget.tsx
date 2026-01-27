@@ -27,7 +27,7 @@ const links = [
 export function LinksWidget() {
   return (
     <Card className="h-full flex flex-col rounded-3xl border-white/60 bg-white/70 backdrop-blur overflow-hidden">
-      <CardContent className="flex-1 flex items-center justify-center gap-3 p-4">
+      <CardContent className="flex-1 min-h-0 flex items-center justify-center gap-3 p-4 overflow-y-auto">
         {links.map((link) => (
           <a
             key={link.label}

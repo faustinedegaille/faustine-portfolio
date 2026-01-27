@@ -42,7 +42,7 @@ export function SkillsWidget({
         <CardTitle className="text-base">Projets par compétences</CardTitle>
       </CardHeader>
 
-      <CardContent className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-1.5 md:gap-2 flex-1 min-h-0 overflow-auto">
+      <CardContent className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-1.5 md:gap-2 flex-1 min-h-0 overflow-y-auto pb-2">
         {skills.map((s) => {
           const isActive = active === s.title
           const isDimmed = active && !isActive

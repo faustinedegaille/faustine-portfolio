@@ -46,7 +46,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="min-h-dvh bg-[#f6f7fb] px-3 py-4 md:px-4 lg:h-dvh">
+    <main className="h-dvh bg-[#f6f7fb] px-3 py-4 md:px-4 overflow-hidden">
       <div className="mx-auto flex h-full max-w-6xl flex-col gap-3 md:gap-4">
         <header className="shrink-0">
           <p className="text-xs text-muted-foreground">Portfolio</p>
@@ -56,9 +56,9 @@ export default function Home() {
           </p>
         </header>
 
-        <section className="grid flex-1 grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 min-h-0 pb-4 lg:pb-0 lg:grid-rows-2">
+        <section className="grid flex-1 grid-cols-1 grid-rows-4 md:grid-cols-2 md:grid-rows-2 gap-3 md:gap-4 min-h-0">
           {focusSkill ? (
-            <div className="col-span-1 md:col-span-2 md:row-span-2 min-h-[70vh] md:min-h-0 md:h-full">
+            <div className="col-span-1 md:col-span-2 md:row-span-2 h-full min-h-0">
               <FocusWidget
                 skill={focusSkill}
                 onClose={handleCloseFocus}
@@ -66,16 +66,16 @@ export default function Home() {
             </div>
           ) : (
             <>
-              <div className="min-h-[280px] md:min-h-0 md:h-full">
+              <div className="h-full min-h-0">
                 <ProfileWidget />
               </div>
-              <div className="min-h-[350px] md:min-h-0 md:h-full">
+              <div className="h-full min-h-0">
                 <ExperienceWidget />
               </div>
-              <div className="min-h-[250px] md:min-h-0 md:h-full">
+              <div className="h-full min-h-0">
                 <SkillsWidget onCtaClick={handleOpenFocus} />
               </div>
-              <div className="min-h-[300px] md:min-h-0 md:h-full">
+              <div className="h-full min-h-0">
                 <ContactWidget />
               </div>
             </>

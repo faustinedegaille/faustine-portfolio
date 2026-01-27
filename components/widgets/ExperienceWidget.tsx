@@ -20,6 +20,7 @@ const experiences: Experience[] = [
     location: "Altermaker · Troyes",
     description: "Conception UI/UX et développement d'un logiciel de mesure d'impact environnemental pour producteurs cidricoles.",
     type: "work",
+    
     current: true,
     tags: ["Next.js", "TypeScript", "Figma"],
   },
@@ -55,8 +56,8 @@ export function ExperienceWidget() {
         <CardTitle className="text-base">Parcours</CardTitle>
       </CardHeader>
 
-      <CardContent className="flex-1 min-h-0 overflow-y-auto md:overflow-visible">
-        <div className="relative h-full">
+      <CardContent className="flex-1 min-h-0 overflow-y-auto pb-1">
+        <div className="relative">
           {/* Timeline line */}
           <div className="absolute left-[11px] top-2 bottom-2 w-0.5 bg-black/10" />
 

@@ -227,13 +227,13 @@ export function FocusWidget({
         </button>
       </CardHeader>
 
-      <CardContent className="flex-1 min-h-0 overflow-y-auto">
-        <div className="grid grid-cols-2 gap-2 md:gap-2.5 h-full">
+      <CardContent className="flex-1 min-h-0 overflow-y-auto pb-2">
+        <div className="grid grid-cols-2 gap-2 md:gap-2.5 pb-1">
           {filtered.map((project) => (
             <button
               key={project.id}
               onClick={(e) => handleProjectClick(project, e)}
-              className="group relative overflow-hidden rounded-xl bg-black/5 text-left min-h-[120px] md:min-h-0"
+              className="group relative overflow-hidden rounded-xl bg-black/5 text-left min-h-[120px] md:min-h-[140px]"
             >
               {project.thumbnail ? (
                 <img
@@ -260,7 +260,7 @@ export function FocusWidget({
           {Array.from({ length: placeholdersCount }).map((_, i) => (
             <div
               key={i}
-              className="rounded-xl bg-black/5 min-h-[120px] md:min-h-0"
+              className="rounded-xl bg-black/5 min-h-[120px] md:min-h-[140px]"
             />
           ))}
         </div>
