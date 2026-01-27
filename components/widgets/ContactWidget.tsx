@@ -52,28 +52,28 @@ export function ContactWidget() {
           <CardTitle className="text-lg">Contact</CardTitle>
         </CardHeader>
 
-        <CardContent className="flex flex-col gap-4 flex-1 min-h-0 overflow-auto overflow-y-visible pt-2">
-          <div className="grid grid-cols-2 gap-3">
+        <CardContent className="flex flex-col gap-3 md:gap-4 flex-1 min-h-0 overflow-visible pt-2">
+          <div className="grid grid-cols-2 gap-2 md:gap-3">
             <SocialCard
               href="https://github.com/faustinedegaille"
               label="GitHub"
               value="@faustinedegaille"
               bg="bg-black"
-              icon={<SiGithub className="h-5 w-5 text-white" />}
+              icon={<SiGithub className="h-4 w-4 md:h-5 md:w-5 text-white" />}
             />
             <SocialCard
               href="https://www.linkedin.com/in/faustine-degaille"
               label="LinkedIn"
               value="faustine-degaille"
               bg="bg-[#3b82c4]"
-              icon={<SiLinkedin className="h-5 w-5 text-white" />}
+              icon={<SiLinkedin className="h-4 w-4 md:h-5 md:w-5 text-white" />}
             />
           </div>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-2">
             <p className="text-sm font-medium">Laisser un message</p>
 
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -96,7 +96,7 @@ export function ContactWidget() {
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Ton message…"
               required
-              className="min-h-[80px] rounded-xl border border-black/5 bg-white/70 px-3 py-2 text-sm resize-none outline-none focus:ring-2 focus:ring-black/10"
+              className="min-h-[70px] md:min-h-[80px] rounded-xl border border-black/5 bg-white/70 px-3 py-2 text-sm resize-none outline-none focus:ring-2 focus:ring-black/10"
             />
 
             <Button type="submit" disabled={loading} className="mt-1 h-10 rounded-full text-sm">
@@ -127,19 +127,19 @@ function SocialCard({ href, label, value, bg, icon }: any) {
       href={href}
       target="_blank"
       whileHover={{ y: -4 }}
-      className={`relative flex flex-col justify-between rounded-2xl p-4 text-white ${bg}`}
+      className={`relative flex flex-col justify-between rounded-2xl p-3 md:p-4 text-white min-h-[90px] md:min-h-[100px] ${bg}`}
     >
-      <div className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/85 text-black">
-        <ArrowUpRight className="h-4 w-4" />
+      <div className="absolute right-2 top-2 md:right-3 md:top-3 flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-white/85 text-black">
+        <ArrowUpRight className="h-3 w-3 md:h-4 md:w-4" />
       </div>
 
-      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/20">
+      <div className="flex h-7 w-7 md:h-9 md:w-9 items-center justify-center rounded-xl bg-white/20">
         {icon}
       </div>
 
       <div>
-        <p className="text-sm font-semibold">{label}</p>
-        <p className="text-xs text-white/75">{value}</p>
+        <p className="text-xs md:text-sm font-semibold">{label}</p>
+        <p className="text-[10px] md:text-xs text-white/75 truncate">{value}</p>
       </div>
     </motion.a>
   )

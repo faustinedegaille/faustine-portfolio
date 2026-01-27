@@ -23,7 +23,16 @@ export const projects: Project[] = [
     description:
       "Site vitrine réalisé dans un cadre pédagogique pour présenter le Parc des Marais.",
     tags: ["javascript", "html", "css", "ui", "responsive", "sass"],
+    link: "http://mmi23g08.sae301dev.ovh/",
     thumbnail: "/projects/parc-des-marais.png",
+    images: ["/projects/parc-des-marais.png"],
+    details: {
+      context:
+        "Projet réalisé dans le cadre de la formation MMI. Un site vitrine pour présenter le Parc des Marais, ses activités et ses informations pratiques.",
+      role: "Développeuse front-end et intégratrice. Réalisation de l'intégration complète du site à partir des maquettes.",
+      skills:
+        "Intégration HTML/CSS avec Sass. Développement JavaScript pour les interactions. Design responsive et optimisation UI.",
+    },
     status: "done",
   },
   {

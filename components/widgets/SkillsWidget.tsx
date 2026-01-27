@@ -39,10 +39,10 @@ export function SkillsWidget({
   return (
     <Card className="h-full flex flex-col rounded-3xl border-white/60 bg-white/70 backdrop-blur overflow-hidden">
       <CardHeader className="shrink-0">
-        <CardTitle className="text-base">Compétences</CardTitle>
+        <CardTitle className="text-base">Projets par compétences</CardTitle>
       </CardHeader>
 
-      <CardContent className="flex flex-col gap-2 flex-1 min-h-0 overflow-auto">
+      <CardContent className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-1.5 md:gap-2 flex-1 min-h-0 overflow-auto">
         {skills.map((s) => {
           const isActive = active === s.title
           const isDimmed = active && !isActive
@@ -52,15 +52,18 @@ export function SkillsWidget({
               key={s.title}
               onHoverStart={() => setActive(s.title)}
               onHoverEnd={() => setActive(null)}
+              onTouchStart={() => setActive(s.title)}
+              onTouchEnd={() => setActive(null)}
               whileHover={{ y: -2 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className={`relative flex items-center justify-between rounded-2xl px-3 py-2.5 bg-white shadow-[0_1px_6px_rgba(0,0,0,0.06)] cursor-pointer transition-opacity ${isDimmed ? "opacity-40" : "opacity-100"}`}
+              onClick={() => s.cta && onCtaClick(s.title)}
+              className={`relative flex items-center justify-between rounded-xl md:rounded-2xl px-2 md:px-3 py-2 md:py-2.5 bg-white shadow-[0_1px_6px_rgba(0,0,0,0.06)] cursor-pointer transition-opacity ${isDimmed ? "opacity-40" : "opacity-100"}`}
             >
-              <div className="flex items-center gap-2.5">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black/5">
-                  <s.icon className="text-base" />
+              <div className="flex items-center gap-2 md:gap-2.5">
+                <div className="flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-black/5">
+                  <s.icon className="text-xs md:text-base" />
                 </div>
-                <p className="text-sm font-medium">{s.label}</p>
+                <p className="text-xs md:text-sm font-medium">{s.label}</p>
               </div>
 
               <AnimatePresence>
@@ -71,7 +74,7 @@ export function SkillsWidget({
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -6 }}
                     transition={{ duration: 0.2 }}
-                    className="text-xs font-medium text-black/60 hover:text-black/80"
+                    className="text-[10px] md:text-xs font-medium text-black/60 hover:text-black/80 hidden md:block"
                     onClick={(e) => {
                       e.stopPropagation()
                       onCtaClick(s.title)
