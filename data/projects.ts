@@ -1,3 +1,9 @@
+export type ProjectDetails = {
+  context: string
+  role: string
+  skills: string
+}
+
 export type Project = {
   id: string
   title: string
@@ -6,6 +12,7 @@ export type Project = {
   link?: string
   thumbnail?: string
   images?: string[]
+  details?: ProjectDetails
   status?: "done" | "in-progress"
 }
 
@@ -27,6 +34,14 @@ export const projects: Project[] = [
     tags: ["nuxt", "typescript", "tailwind"],
     link: "http://mmi23h04.mmi-troyes.fr/portfolio/bookmood/",
     thumbnail: "/projects/bookmood.png",
+    images: ["/projects/bookmood.png"],
+    details: {
+      context:
+        "Projet réalisé sur mon temps personnel pour découvrir Nuxt.js. Une application qui recommande des livres en fonction de l'humeur sélectionnée par l'utilisateur.",
+      role: "Développeuse front-end sur ce projet. Intégration des maquettes et développement des fonctionnalités de recommandation. ",
+      skills:
+        "Développement avec Nuxt.js et gestion d'état. Intégration responsive et optimisation des performances.",
+    },
     status: "done",
   },
   {
@@ -42,7 +57,13 @@ export const projects: Project[] = [
       "/projects/questionnaire.PNG",
       "/projects/questionnaire-NSP.PNG",
     ],
+    details: {
+      context:
+        "Projet réalisé en alternance chez Altermaker. Un logiciel pour mesurer l'impact environnemental de producteurs de cidre, calvados et produits similaires.",
+      role: "Unique développeuse front-end et web designer. Conception de l'identité visuelle et des maquettes, puis développement complet de l'interface.",
+      skills:
+        "Autonomie et prise de décision au quotidien. Travail collaboratif via pull requests avec code review systématique.",
+    },
     status: "in-progress",
   },
 ]
-  

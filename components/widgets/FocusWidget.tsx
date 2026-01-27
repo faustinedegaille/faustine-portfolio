@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { X, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { X, ArrowUpRight, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react"
 import { projects } from "@/data/projects"
 import type { Project } from "@/data/projects"
 import { useState, useEffect } from "react"
@@ -35,25 +35,39 @@ function ImageSlider({ project, onClose }: { project: Project; onClose: () => vo
             <span className="text-xs text-black/50">En cours</span>
           )}
         </div>
-        <div className="flex items-center gap-1">
-          <span className="text-xs text-black/50 mr-2">
-            {currentIndex + 1} / {images.length}
-          </span>
-          <button
-            onClick={goToPrevious}
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-black/5 bg-white/70 hover:bg-white transition-colors"
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </button>
-          <button
-            onClick={goToNext}
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-black/5 bg-white/70 hover:bg-white transition-colors"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </button>
+        <div className="flex items-center gap-2">
+          {images.length > 1 ? (
+            <>
+              <span className="text-xs text-black/50">
+                {currentIndex + 1} / {images.length}
+              </span>
+              <button
+                onClick={goToPrevious}
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-black/5 bg-white/70 hover:bg-white transition-colors"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </button>
+              <button
+                onClick={goToNext}
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-black/5 bg-white/70 hover:bg-white transition-colors"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </button>
+            </>
+          ) : project.link ? (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black text-white text-xs font-medium rounded-full hover:bg-black/80 transition-colors"
+            >
+              Voir le projet
+              <ExternalLink className="h-3 w-3" />
+            </a>
+          ) : null}
           <button
             onClick={onClose}
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-black/5 bg-white/70 hover:bg-white transition-colors ml-1"
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-black/5 bg-white/70 hover:bg-white transition-colors"
           >
             <X className="h-4 w-4" />
           </button>
@@ -76,61 +90,58 @@ function ImageSlider({ project, onClose }: { project: Project; onClose: () => vo
           </AnimatePresence>
         </div>
 
-        <div className="flex justify-center gap-1.5 py-3">
-          {images.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`h-1.5 rounded-full transition-all ${
-                index === currentIndex
-                  ? "w-4 bg-black/60"
-                  : "w-1.5 bg-black/20 hover:bg-black/30"
-              }`}
-            />
-          ))}
-        </div>
+        {images.length > 1 && (
+          <div className="flex justify-center gap-1.5 py-3">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`h-1.5 rounded-full transition-all ${
+                  index === currentIndex
+                    ? "w-4 bg-black/60"
+                    : "w-1.5 bg-black/20 hover:bg-black/30"
+                }`}
+              />
+            ))}
+          </div>
+        )}
 
-        <div className="shrink-0 border-t border-black/5 pt-4 overflow-y-auto max-h-64">
-          <div className="grid grid-cols-3 gap-4 text-sm">
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-emerald-500" />
-                <span className="text-xs font-medium uppercase tracking-wide text-black/40">Contexte</span>
+        {project.details && (
+          <div className="shrink-0 border-t border-black/5 pt-4 overflow-y-auto max-h-64">
+            <div className="grid grid-cols-3 gap-4 text-sm">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-emerald-500" />
+                  <span className="text-xs font-medium uppercase tracking-wide text-black/40">Contexte</span>
+                </div>
+                <p className="text-black/70">{project.details.context}</p>
               </div>
-              <p className="text-black/70">
-                Projet réalisé en <strong className="text-black">alternance chez Altermaker</strong>.
-                Un logiciel pour <strong className="text-black">mesurer l&apos;impact environnemental</strong> de producteurs de cidre, calvados et produits similaires.
-              </p>
-            </div>
 
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-blue-500" />
-                <span className="text-xs font-medium uppercase tracking-wide text-black/40">Mon rôle</span>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-blue-500" />
+                  <span className="text-xs font-medium uppercase tracking-wide text-black/40">Mon rôle</span>
+                </div>
+                <p className="text-black/70">{project.details.role}</p>
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="px-2 py-0.5 bg-black/5 rounded-full text-xs font-medium capitalize">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <p className="text-black/70">
-                <strong className="text-black">Unique développeuse front-end</strong> et <strong className="text-black">web designer</strong>.
-                Conception de l&apos;identité visuelle et des maquettes, puis développement complet de l&apos;interface.
-              </p>
-              <div className="flex flex-wrap gap-1.5 pt-1">
-                <span className="px-2 py-0.5 bg-black/5 rounded-full text-xs font-medium">Next.js</span>
-                <span className="px-2 py-0.5 bg-black/5 rounded-full text-xs font-medium">TypeScript</span>
-                <span className="px-2 py-0.5 bg-black/5 rounded-full text-xs font-medium">Tailwind</span>
-              </div>
-            </div>
 
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-violet-500" />
-                <span className="text-xs font-medium uppercase tracking-wide text-black/40">Compétences</span>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-violet-500" />
+                  <span className="text-xs font-medium uppercase tracking-wide text-black/40">Compétences</span>
+                </div>
+                <p className="text-black/70">{project.details.skills}</p>
               </div>
-              <p className="text-black/70">
-                <strong className="text-black">Autonomie</strong> et <strong className="text-black">prise de décision</strong> au quotidien.
-                Travail collaboratif via <strong className="text-black">pull requests</strong> avec code review systématique.
-              </p>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </motion.div>
   )
