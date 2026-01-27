@@ -19,10 +19,10 @@ export function ProfileWidget() {
       </CardHeader>
 
       <CardContent className="flex-1 min-h-0 px-4 md:px-6 pb-2 md:pb-3 overflow-y-auto">
-        <div className="grid grid-cols-[100px_1fr] md:grid-cols-[180px_1fr] lg:grid-cols-[220px_1fr] gap-3 md:gap-4 lg:gap-6">
-          <div className="relative min-h-[140px] md:min-h-[180px] overflow-hidden rounded-2xl md:rounded-3xl ring-1 ring-black/10">
+        <div className="grid grid-cols-[100px_1fr] md:grid-cols-[180px_1fr] lg:grid-cols-[220px_1fr] gap-3 md:gap-4 lg:gap-6 h-full">
+          <div className="relative h-full min-h-[140px] overflow-hidden rounded-2xl md:rounded-3xl ring-1 ring-black/10">
             <Image
-              src="/images/avatar.png"
+              src="/portfolio/images/avatar.png"
               alt="Avatar"
               fill
               priority
@@ -30,7 +30,7 @@ export function ProfileWidget() {
             />
           </div>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col justify-between h-full">
             <div className="space-y-1.5 md:space-y-2">
               <p className="text-lg md:text-xl lg:text-2xl font-semibold leading-tight">
                 Développeuse front-end
@@ -53,6 +53,9 @@ export function ProfileWidget() {
                 </span>
                 <span className="rounded-full bg-black/5 px-2.5 md:px-4 py-1 md:py-1.5 text-xs md:text-sm text-muted-foreground">
                   Développement front-end
+                </span>
+                <span className="rounded-full bg-black/5 px-2.5 md:px-4 py-1 md:py-1.5 text-xs md:text-sm text-muted-foreground">
+                  Web design
                 </span>
               </div>
             </div>

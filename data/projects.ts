@@ -25,7 +25,7 @@ export const projects: Project[] = [
     tags: ["javascript", "html", "css", "ui", "responsive", "sass"],
     link: "http://mmi23g08.sae301dev.ovh/",
     thumbnail: "/portfolio/projects/parc-des-marais.png",
-    images: ["/projects/parc-des-marais.png"],
+    images: ["/portfolio/projects/parc-des-marais.png"],
     details: {
       context:
         "Projet réalisé dans le cadre de la formation MMI. Un site vitrine pour présenter le Parc des Marais, ses activités et ses informations pratiques.",
