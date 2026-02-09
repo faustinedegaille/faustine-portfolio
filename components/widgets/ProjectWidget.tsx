@@ -3,8 +3,9 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { X, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react"
 import type { Project } from "@/data/projects"
-import { useState } from "react"
+import { useCarousel } from "@/hooks/useCarousel"
 import { motion, AnimatePresence } from "framer-motion"
+import { ProjectDetailsGrid } from "./ProjectDetailsGrid"
 
 type ProjectWidgetProps = {
   project: Project
@@ -13,15 +14,7 @@ type ProjectWidgetProps = {
 
 export function ProjectWidget({ project, onClose }: ProjectWidgetProps) {
   const images = project.images || []
-  const [currentIndex, setCurrentIndex] = useState(0)
-
-  const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
-  }
-
-  const goToNext = () => {
-    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
-  }
+  const { currentIndex, goToPrevious, goToNext, goTo } = useCarousel(images.length)
 
   return (
     <Card className="h-full flex flex-col rounded-3xl border-white/60 bg-white/70 backdrop-blur overflow-hidden">
@@ -97,7 +90,7 @@ export function ProjectWidget({ project, onClose }: ProjectWidgetProps) {
             {images.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => goTo(index)}
                 className={`h-1.5 rounded-full transition-all ${
                   index === currentIndex
                     ? "w-4 bg-black/60"
@@ -109,40 +102,7 @@ export function ProjectWidget({ project, onClose }: ProjectWidgetProps) {
         )}
 
         {project.details && (
-          <div className="shrink-0 border-t border-black/5 pt-4 overflow-y-auto max-h-64">
-            <div className="grid grid-cols-3 gap-4 text-sm">
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-emerald-500" />
-                  <span className="text-xs font-medium uppercase tracking-wide text-black/40">Contexte</span>
-                </div>
-                <p className="text-black/70">{project.details.context}</p>
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-blue-500" />
-                  <span className="text-xs font-medium uppercase tracking-wide text-black/40">Mon rôle</span>
-                </div>
-                <p className="text-black/70">{project.details.role}</p>
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="px-2 py-0.5 bg-black/5 rounded-full text-xs font-medium capitalize">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-violet-500" />
-                  <span className="text-xs font-medium uppercase tracking-wide text-black/40">Compétences</span>
-                </div>
-                <p className="text-black/70">{project.details.skills}</p>
-              </div>
-            </div>
-          </div>
+          <ProjectDetailsGrid details={project.details} tags={project.tags} />
         )}
       </CardContent>
     </Card>
