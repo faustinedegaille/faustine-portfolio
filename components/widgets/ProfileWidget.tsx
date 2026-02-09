@@ -8,21 +8,21 @@ import { Button } from "@/components/ui/button"
 export function ProfileWidget() {
   return (
     <Card className="h-full flex flex-col rounded-3xl border-white/60 bg-white/70 backdrop-blur overflow-hidden">
-      <CardHeader className="shrink-0">
+      <CardHeader className="shrink-0 md:px-vp md:py-vg">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-base md:text-lg">Profil</CardTitle>
-          <div className="flex items-center gap-1.5 md:gap-2 rounded-full border border-black/5 bg-white/60 px-2 md:px-3 py-0.5 md:py-1 text-xs md:text-sm">
+          <CardTitle className="text-base md:text-v-title">Profil</CardTitle>
+          <div className="flex items-center gap-1.5 md:gap-vs rounded-full border border-black/5 bg-white/60 px-2 md:px-3 py-0.5 md:py-1 text-xs md:text-v-xs">
             <span className="h-2 w-2 md:h-2.5 md:w-2.5 rounded-full bg-emerald-500" />
             Disponible
           </div>
         </div>
       </CardHeader>
 
-      <CardContent className="flex-1 min-h-0 px-4 md:px-6 pb-2 md:pb-3 overflow-y-auto">
-        <div className="grid grid-cols-[100px_1fr] md:grid-cols-[180px_1fr] lg:grid-cols-[220px_1fr] gap-3 md:gap-4 lg:gap-6 h-full">
-          <div className="relative h-full min-h-[140px] overflow-hidden rounded-2xl md:rounded-3xl ring-1 ring-black/10">
+      <CardContent className="flex-1 min-h-0 px-4 md:px-vp pb-3 md:pb-vs overflow-hidden">
+        <div className="grid grid-cols-[90px_1fr] sm:grid-cols-[100px_1fr] md:grid-cols-[clamp(120px,12vw,220px)_1fr] gap-3 md:gap-vg h-full">
+          <div className="relative min-h-30 sm:min-h-35 h-full overflow-hidden rounded-2xl md:rounded-3xl ring-1 ring-black/10">
             <Image
-              src="/portfolio/images/avatar.png"
+              src="/images/avatar.png"
               alt="Avatar"
               fill
               priority
@@ -30,41 +30,41 @@ export function ProfileWidget() {
             />
           </div>
 
-          <div className="flex flex-col justify-between h-full">
-            <div className="space-y-1.5 md:space-y-2">
-              <p className="text-lg md:text-xl lg:text-2xl font-semibold leading-tight">
+          <div className="flex flex-col justify-between h-full min-w-0">
+            <div className="space-y-1.5 md:space-y-vs">
+              <p className="text-base sm:text-lg md:text-v-lg font-semibold leading-tight">
                 Développeuse front-end
                 <br />
                 Web designer
               </p>
 
               <div className="space-y-0.5">
-                <p className="text-sm md:text-base font-medium">
+                <p className="text-sm md:text-v-base font-medium">
                   BUT MMI · 3ᵉ année
                 </p>
-                <p className="text-xs md:text-sm text-muted-foreground">
+                <p className="text-xs md:text-v-xs text-muted-foreground">
                   IUT de Troyes
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-1.5 md:gap-2 pt-1 md:pt-2">
-                <span className="rounded-full bg-black/5 px-2.5 md:px-4 py-1 md:py-1.5 text-xs md:text-sm font-medium">
+              <div className="flex flex-wrap gap-1.5 md:gap-vs pt-1 md:pt-vs">
+                <span className="rounded-full bg-black/5 px-2 sm:px-2.5 md:px-3 py-1 md:py-vs text-[11px] sm:text-xs md:text-v-xs font-medium">
                   Alternance · Altermaker
                 </span>
-                <span className="rounded-full bg-black/5 px-2.5 md:px-4 py-1 md:py-1.5 text-xs md:text-sm text-muted-foreground">
+                <span className="rounded-full bg-black/5 px-2 sm:px-2.5 md:px-3 py-1 md:py-vs text-[11px] sm:text-xs md:text-v-xs text-muted-foreground">
                   Développement front-end
                 </span>
-                <span className="rounded-full bg-black/5 px-2.5 md:px-4 py-1 md:py-1.5 text-xs md:text-sm text-muted-foreground">
+                <span className="rounded-full bg-black/5 px-2 sm:px-2.5 md:px-3 py-1 md:py-vs text-[11px] sm:text-xs md:text-v-xs text-muted-foreground">
                   Web design
                 </span>
               </div>
             </div>
 
-            <div className="pt-1 md:pt-2">
+            <div className="pt-2 md:pt-vs">
               <Button
                 asChild
                 size="default"
-                className="h-9 md:h-11 w-full rounded-full text-sm md:text-base border-0 shadow-none"
+                className="h-10 md:h-vbtn w-full rounded-full text-sm md:text-v-base border-0 shadow-none"
               >
                 <Link
                   href="/docs/CV_DEGAILLE.pdf"

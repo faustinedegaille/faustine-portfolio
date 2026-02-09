@@ -1,20 +1,25 @@
-"use client"
+"use client";
 
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { ArrowUpRight } from "lucide-react"
-import { projects } from "@/data/projects"
-import type { Project } from "@/data/projects"
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { ArrowUpRight } from "lucide-react";
+import { projects } from "@/data/projects";
+import type { Project } from "@/data/projects";
+import Image from "next/image";
 
-const TOTAL_SLOTS = 4
+const TOTAL_SLOTS = 4;
 
 type SelectedWorkWidgetProps = {
-  onProjectClick?: (project: Project) => void
-}
+  onProjectClick?: (project: Project) => void;
+};
 
-export function SelectedWorkWidget({ onProjectClick }: SelectedWorkWidgetProps) {
-  const projectsWithThumbnail = projects.filter((p) => p.thumbnail)
-  const displayedProjects = projectsWithThumbnail.slice(0, TOTAL_SLOTS)
-  const placeholdersCount = Math.max(TOTAL_SLOTS - displayedProjects.length, 0)
+export function SelectedWorkWidget({
+  onProjectClick,
+}: SelectedWorkWidgetProps) {
+  const projectsWithThumbnail = projects.filter(
+    (p): p is Project & { thumbnail: string } => !!p.thumbnail,
+  );
+  const displayedProjects = projectsWithThumbnail.slice(0, TOTAL_SLOTS);
+  const placeholdersCount = Math.max(TOTAL_SLOTS - displayedProjects.length, 0);
 
   return (
     <Card className="h-full flex flex-col rounded-3xl border-white/60 bg-white/70 backdrop-blur overflow-hidden">
@@ -29,11 +34,14 @@ export function SelectedWorkWidget({ onProjectClick }: SelectedWorkWidgetProps) 
             onClick={() => onProjectClick?.(project)}
             className="group relative overflow-hidden rounded-2xl bg-black/5 text-left"
           >
-            <img
-              src={project.thumbnail}
-              alt={project.title}
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-            />
+            <div className="relative h-full w-full">
+              <Image
+                src={project.thumbnail}
+                alt={project.title}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
 
             <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/40 to-transparent px-2.5 py-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
               <p className="text-[11px] font-medium text-white leading-tight">
@@ -48,12 +56,9 @@ export function SelectedWorkWidget({ onProjectClick }: SelectedWorkWidgetProps) 
         ))}
 
         {Array.from({ length: placeholdersCount }).map((_, i) => (
-          <div
-            key={i}
-            className="rounded-2xl bg-black/5"
-          />
+          <div key={i} className="rounded-2xl bg-black/5" />
         ))}
       </CardContent>
     </Card>
-  )
+  );
 }

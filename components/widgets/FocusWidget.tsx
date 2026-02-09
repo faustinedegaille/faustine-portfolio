@@ -6,6 +6,7 @@ import { projects } from "@/data/projects"
 import type { Project } from "@/data/projects"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import Image from "next/image"
 
 const TOTAL_SLOTS = 4
 
@@ -28,17 +29,17 @@ function ImageSlider({ project, onClose }: { project: Project; onClose: () => vo
       exit={{ opacity: 0 }}
       className="absolute inset-0 z-10 flex flex-col bg-white/95 backdrop-blur rounded-3xl overflow-hidden"
     >
-      <div className="flex items-center justify-between px-3 md:px-4 py-2 md:py-3 shrink-0">
+      <div className="flex items-center justify-between px-3 md:px-vp py-2 md:py-vs shrink-0">
         <div>
-          <h3 className="text-sm md:text-base font-semibold">{project.title}</h3>
+          <h3 className="text-sm md:text-v-base font-semibold">{project.title}</h3>
           {project.status === "in-progress" && (
-            <span className="text-[10px] md:text-xs text-black/50">En cours</span>
+            <span className="text-[10px] md:text-v-2xs text-black/50">En cours</span>
           )}
         </div>
-        <div className="flex items-center gap-1.5 md:gap-2">
+        <div className="flex items-center gap-1.5 md:gap-vs">
           {images.length > 1 ? (
             <>
-              <span className="text-[10px] md:text-xs text-black/50">
+              <span className="text-[10px] md:text-v-2xs text-black/50">
                 {currentIndex + 1} / {images.length}
               </span>
               <button
@@ -59,7 +60,7 @@ function ImageSlider({ project, onClose }: { project: Project; onClose: () => vo
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 md:gap-1.5 px-2 md:px-3 py-1 md:py-1.5 bg-black text-white text-[10px] md:text-xs font-medium rounded-full hover:bg-black/80 transition-colors"
+              className="inline-flex items-center gap-1 md:gap-1.5 px-2 md:px-3 py-1 md:py-1.5 bg-black text-white text-[10px] md:text-v-2xs font-medium rounded-full hover:bg-black/80 transition-colors"
             >
               Voir le projet
               <ExternalLink className="h-2.5 w-2.5 md:h-3 md:w-3" />
@@ -74,24 +75,29 @@ function ImageSlider({ project, onClose }: { project: Project; onClose: () => vo
         </div>
       </div>
 
-      <div className="flex-1 min-h-0 px-3 md:px-4 pb-3 md:pb-4 flex flex-col overflow-hidden">
+      <div className="flex-1 min-h-0 px-3 md:px-vp pb-3 md:pb-vp flex flex-col overflow-hidden">
         <div className="flex-1 min-h-0 flex items-center justify-center relative">
           <AnimatePresence mode="wait">
-            <motion.img
+            <motion.div
               key={currentIndex}
-              src={images[currentIndex]}
-              alt={`${project.title} - ${currentIndex + 1}`}
-              className="max-w-full max-h-full object-contain rounded-xl md:rounded-2xl"
+              className="relative w-full h-full"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.2 }}
-            />
+            >
+              <Image
+                src={images[currentIndex]}
+                alt={`${project.title} - ${currentIndex + 1}`}
+                fill
+                className="object-contain rounded-xl md:rounded-2xl"
+              />
+            </motion.div>
           </AnimatePresence>
         </div>
 
         {images.length > 1 && (
-          <div className="flex justify-center gap-1.5 py-2 md:py-3">
+          <div className="flex justify-center gap-1.5 py-2 md:py-vs">
             {images.map((_, index) => (
               <button
                 key={index}
@@ -107,37 +113,37 @@ function ImageSlider({ project, onClose }: { project: Project; onClose: () => vo
         )}
 
         {project.details && (
-          <div className="shrink-0 border-t border-black/5 pt-3 md:pt-4 overflow-y-auto max-h-48 md:max-h-64">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 text-xs md:text-sm">
-              <div className="space-y-1 md:space-y-2">
+          <div className="shrink-0 border-t border-black/5 pt-2 sm:pt-3 md:pt-vg overflow-y-auto max-h-36 sm:max-h-48 md:max-h-64">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 md:gap-vg text-xs md:text-v-sm">
+              <div className="space-y-1 md:space-y-vs">
                 <div className="flex items-center gap-2">
                   <div className="h-2 w-2 rounded-full bg-emerald-500" />
-                  <span className="text-[10px] md:text-xs font-medium uppercase tracking-wide text-black/40">Contexte</span>
+                  <span className="text-[10px] md:text-v-2xs font-medium uppercase tracking-wide text-black/40">Contexte</span>
                 </div>
-                <p className="text-black/70 text-[11px] md:text-sm">{project.details.context}</p>
+                <p className="text-black/70 text-[11px] md:text-v-xs">{project.details.context}</p>
               </div>
 
-              <div className="space-y-1 md:space-y-2">
+              <div className="space-y-1 md:space-y-vs">
                 <div className="flex items-center gap-2">
                   <div className="h-2 w-2 rounded-full bg-blue-500" />
-                  <span className="text-[10px] md:text-xs font-medium uppercase tracking-wide text-black/40">Mon rôle</span>
+                  <span className="text-[10px] md:text-v-2xs font-medium uppercase tracking-wide text-black/40">Mon rôle</span>
                 </div>
-                <p className="text-black/70 text-[11px] md:text-sm">{project.details.role}</p>
-                <div className="flex flex-wrap gap-1 md:gap-1.5 pt-1">
+                <p className="text-black/70 text-[11px] md:text-v-xs">{project.details.role}</p>
+                <div className="flex flex-wrap gap-1 md:gap-vs pt-1">
                   {project.tags.map((tag) => (
-                    <span key={tag} className="px-1.5 md:px-2 py-0.5 bg-black/5 rounded-full text-[10px] md:text-xs font-medium capitalize">
+                    <span key={tag} className="px-1.5 md:px-2 py-0.5 bg-black/5 rounded-full text-[10px] md:text-v-2xs font-medium capitalize">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="space-y-1 md:space-y-2">
+              <div className="space-y-1 md:space-y-vs">
                 <div className="flex items-center gap-2">
                   <div className="h-2 w-2 rounded-full bg-violet-500" />
-                  <span className="text-[10px] md:text-xs font-medium uppercase tracking-wide text-black/40">Compétences</span>
+                  <span className="text-[10px] md:text-v-2xs font-medium uppercase tracking-wide text-black/40">Compétences</span>
                 </div>
-                <p className="text-black/70 text-[11px] md:text-sm">{project.details.skills}</p>
+                <p className="text-black/70 text-[11px] md:text-v-xs">{project.details.skills}</p>
               </div>
             </div>
           </div>
@@ -213,8 +219,8 @@ export function FocusWidget({
         )}
       </AnimatePresence>
 
-      <CardHeader className="flex items-center justify-between shrink-0">
-        <CardTitle className="text-base">
+      <CardHeader className="flex items-center justify-between shrink-0 md:px-vp md:py-vg">
+        <CardTitle className="text-base md:text-v-title">
           Projets · {skill}
         </CardTitle>
 
@@ -228,39 +234,45 @@ export function FocusWidget({
       </CardHeader>
 
       <CardContent className="flex-1 min-h-0 overflow-hidden">
-        <div className="grid grid-cols-2 grid-rows-2 gap-2 md:gap-2.5 h-full">
-          {filtered.map((project) => (
-            <button
-              key={project.id}
-              onClick={(e) => handleProjectClick(project, e)}
-              className="group relative overflow-hidden rounded-xl bg-black/5 text-left h-full w-full"
-            >
-              {project.thumbnail ? (
-                <img
-                  src={project.thumbnail}
-                  alt={project.title}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              ) : (
-                <div className="h-full w-full bg-black/10" />
-              )}
+        <div className="grid grid-cols-2 grid-rows-2 gap-2 md:gap-vg h-full">
+          {filtered.map((project) => {
+            const thumbnailSrc = project.thumbnail
+            return (
+              <button
+                key={project.id}
+                onClick={(e) => handleProjectClick(project, e)}
+                className="group relative overflow-hidden rounded-xl bg-black/5 text-left h-full w-full min-h-28 sm:min-h-36"
+              >
+                {thumbnailSrc ? (
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={thumbnailSrc}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                ) : (
+                  <div className="h-full w-full bg-black/10" />
+                )}
 
-              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/40 to-transparent px-2 md:px-2.5 py-1.5 md:py-2 md:opacity-0 transition-opacity duration-200 md:group-hover:opacity-100">
-                <p className="text-[10px] md:text-[11px] font-medium text-white leading-tight">
-                  {project.title}
-                </p>
-              </div>
+                <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/40 to-transparent px-2 md:px-2.5 py-1.5 md:py-2 md:opacity-0 transition-opacity duration-200 md:group-hover:opacity-100">
+                  <p className="text-[10px] md:text-v-2xs font-medium text-white leading-tight">
+                    {project.title}
+                  </p>
+                </div>
 
-              <div className="absolute right-1.5 top-1.5 md:right-2 md:top-2 flex h-5 w-5 md:h-6 md:w-6 items-center justify-center rounded-full bg-white/90 text-black md:opacity-0 transition-opacity duration-200 md:group-hover:opacity-100">
-                <ArrowUpRight className="h-2.5 w-2.5 md:h-3 md:w-3" />
-              </div>
-            </button>
-          ))}
+                <div className="absolute right-1.5 top-1.5 md:right-2 md:top-2 flex h-5 w-5 md:h-6 md:w-6 items-center justify-center rounded-full bg-white/90 text-black md:opacity-0 transition-opacity duration-200 md:group-hover:opacity-100">
+                  <ArrowUpRight className="h-2.5 w-2.5 md:h-3 md:w-3" />
+                </div>
+              </button>
+            )
+          })}
 
           {Array.from({ length: placeholdersCount }).map((_, i) => (
             <div
               key={i}
-              className="rounded-xl bg-black/5 h-full w-full"
+              className="rounded-xl bg-black/5 h-full w-full min-h-28 sm:min-h-36"
             />
           ))}
         </div>

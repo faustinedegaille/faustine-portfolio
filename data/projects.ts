@@ -24,8 +24,8 @@ export const projects: Project[] = [
       "Site vitrine réalisé dans un cadre pédagogique pour présenter le Parc des Marais.",
     tags: ["javascript", "html", "css", "ui", "responsive", "sass"],
     link: "http://mmi23g08.sae301dev.ovh/",
-    thumbnail: "/portfolio/projects/parc-des-marais.png",
-    images: ["/portfolio/projects/parc-des-marais.png"],
+    thumbnail: "/projects/parc-des-marais.png",
+    images: ["/projects/parc-des-marais.png"],
     details: {
       context:
         "Projet réalisé dans le cadre de la formation MMI. Un site vitrine pour présenter le Parc des Marais, ses activités et ses informations pratiques.",
@@ -42,8 +42,8 @@ export const projects: Project[] = [
       "Application de recommandation de livres basée sur l'humeur de l'utilisateur.",
     tags: ["nuxt", "typescript", "tailwind"],
     link: "http://mmi23h04.mmi-troyes.fr/portfolio/bookmood/",
-    thumbnail: "/portfolio/projects/bookmood.png",
-    images: ["/portfolio/projects/bookmood.png"],
+    thumbnail: "/projects/bookmood.png",
+    images: ["/projects/bookmood.png"],
     details: {
       context:
         "Projet réalisé sur mon temps personnel pour découvrir Nuxt.js. Une application qui recommande des livres en fonction de l'humeur sélectionnée par l'utilisateur.",
@@ -59,12 +59,12 @@ export const projects: Project[] = [
     description:
       "Application de création et gestion de questionnaires.",
     tags: ["next.js", "typescript", "tailwind"],
-    thumbnail: "/portfolio/projects/creation-projet.PNG",
+    thumbnail: "/projects/creation-projet.PNG",
     images: [
-      "/portfolio/projects/creation-projet.PNG",
-      "/portfolio/projects/projects-card.PNG",
-      "/portfolio/projects/questionnaire.PNG",
-      "/portfolio/projects/questionnaire-NSP.PNG",
+      "/projects/creation-projet.PNG",
+      "/projects/projects-card.PNG",
+      "/projects/questionnaire.PNG",
+      "/projects/questionnaire-NSP.PNG",
     ],
     details: {
       context:

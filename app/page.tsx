@@ -1,81 +1,83 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useCallback } from "react"
-import { ProfileWidget } from "@/components/widgets/ProfileWidget"
-import { SkillsWidget } from "@/components/widgets/SkillsWidget"
-import { ContactWidget } from "@/components/widgets/ContactWidget"
-import { FocusWidget } from "@/components/widgets/FocusWidget"
-import { ExperienceWidget } from "@/components/widgets/ExperienceWidget"
+import { useState, useEffect, useCallback } from "react";
+import { ProfileWidget } from "@/components/widgets/ProfileWidget";
+import { SkillsWidget } from "@/components/widgets/SkillsWidget";
+import { ContactWidget } from "@/components/widgets/ContactWidget";
+import { FocusWidget } from "@/components/widgets/FocusWidget";
+import { ExperienceWidget } from "@/components/widgets/ExperienceWidget";
 
 export default function Home() {
-  const [focusSkill, setFocusSkill] = useState<string | null>(null)
+  const [focusSkill, setFocusSkill] = useState<string | null>(() => {
+    if (typeof window !== "undefined") {
+      const initialHash = window.location.hash.slice(1);
+      const skill = initialHash.split("/")[0];
+      return skill || null;
+    }
+    return null;
+  });
 
   const handleOpenFocus = useCallback((skill: string) => {
-    setFocusSkill(skill)
-    window.history.pushState({ focusSkill: skill }, "", `#${skill}`)
-  }, [])
+    setFocusSkill(skill);
+    window.history.pushState({ focusSkill: skill }, "", `#${skill}`);
+  }, []);
 
   const handleCloseFocus = useCallback(() => {
-    setFocusSkill(null)
+    setFocusSkill(null);
     if (window.location.hash) {
-      window.history.pushState(null, "", window.location.pathname)
+      window.history.pushState(null, "", window.location.pathname);
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     const handlePopState = () => {
-      const hash = window.location.hash.slice(1)
+      const hash = window.location.hash.slice(1);
       if (hash) {
-        setFocusSkill(hash)
+        const skill = hash.split("/")[0];
+        setFocusSkill(skill);
       } else {
-        setFocusSkill(null)
+        setFocusSkill(null);
       }
-    }
+    };
 
-    window.addEventListener("popstate", handlePopState)
-
-    // Check initial hash on mount
-    const initialHash = window.location.hash.slice(1)
-    if (initialHash) {
-      setFocusSkill(initialHash)
-    }
-
+    window.addEventListener("popstate", handlePopState);
     return () => {
-      window.removeEventListener("popstate", handlePopState)
-    }
-  }, [])
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, []);
 
   return (
-    <main className="h-dvh bg-[#f6f7fb] px-3 py-4 md:px-4 overflow-hidden">
-      <div className="mx-auto flex h-full max-w-6xl flex-col gap-3 md:gap-4">
+    <main className="min-h-dvh md:h-dvh bg-[#f6f7fb] px-3 md:px-vp py-4 md:py-vpage md:overflow-hidden">
+      <div className="mx-auto flex h-full max-w-6xl flex-col gap-3 md:gap-vg">
         <header className="shrink-0">
-          <p className="text-xs text-muted-foreground">Portfolio</p>
-          <h1 className="text-2xl md:text-3xl font-semibold">Faustine Degaille</h1>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-xs md:text-v-xs text-muted-foreground">
+            Portfolio
+          </p>
+          <h1 className="text-2xl md:text-v-h1 font-semibold leading-tight">
+            Faustine Degaille
+          </h1>
+          <p className="text-sm md:text-v-sm text-muted-foreground">
             Développeuse front-end & web designer
           </p>
         </header>
 
-        <section className="grid flex-1 grid-cols-1 grid-rows-4 md:grid-cols-2 md:grid-rows-2 gap-3 md:gap-4 min-h-0">
+        <section className="grid flex-1 grid-cols-1 auto-rows-auto md:grid-cols-2 md:grid-rows-2 gap-3 md:gap-vg md:min-h-0 pb-4 md:pb-0">
           {focusSkill ? (
-            <div className="col-span-1 md:col-span-2 md:row-span-2 h-full min-h-0">
-              <FocusWidget
-                skill={focusSkill}
-                onClose={handleCloseFocus}
-              />
+            <div className="col-span-1 md:col-span-2 md:row-span-2 min-h-[60dvh] md:h-full md:min-h-0">
+              <FocusWidget skill={focusSkill} onClose={handleCloseFocus} />
             </div>
           ) : (
             <>
-              <div className="h-full min-h-0">
+              <div className="md:h-full md:min-h-0">
                 <ProfileWidget />
               </div>
-              <div className="h-full min-h-0">
+              <div className="md:h-full md:min-h-0">
                 <ExperienceWidget />
               </div>
-              <div className="h-full min-h-0">
+              <div className="md:h-full md:min-h-0">
                 <SkillsWidget onCtaClick={handleOpenFocus} />
               </div>
-              <div className="h-full min-h-0">
+              <div className="md:h-full md:min-h-0">
                 <ContactWidget />
               </div>
             </>
@@ -83,5 +85,5 @@ export default function Home() {
         </section>
       </div>
     </main>
-  )
+  );
 }

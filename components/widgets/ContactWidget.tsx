@@ -14,12 +14,12 @@ export function ContactWidget() {
       transition={{ duration: 0.4, ease: "easeOut" }}
     >
       <Card className="h-full flex flex-col rounded-3xl border-white/60 bg-white/70 backdrop-blur overflow-hidden">
-        <CardHeader className="shrink-0">
-          <CardTitle className="text-lg">Contact</CardTitle>
+        <CardHeader className="shrink-0 md:px-vp md:py-vg">
+          <CardTitle className="text-lg md:text-v-title">Contact</CardTitle>
         </CardHeader>
 
-        <CardContent className="flex flex-col gap-3 md:gap-4 flex-1 min-h-0 pt-2 pb-3 overflow-y-auto">
-          <div className="grid grid-cols-2 gap-2 md:gap-3 flex-1">
+        <CardContent className="flex flex-col gap-2 sm:gap-3 md:gap-vg flex-1 min-h-0 pt-2 pb-3 md:pt-vs md:pb-vs overflow-hidden">
+          <div className="grid grid-cols-2 gap-2 md:gap-vg flex-1">
             <SocialCard
               href="https://github.com/faustinedegaille"
               label="GitHub"
@@ -74,7 +74,7 @@ function SocialCard({
       target="_blank"
       rel="noopener noreferrer"
       whileHover={{ y: -4 }}
-      className={`relative flex ${wide ? "flex-row items-center gap-3 shrink-0" : "flex-col justify-between h-full"} rounded-2xl p-3 md:p-4 ${light ? "text-neutral-800" : "text-white"} ${wide ? "min-h-[60px] md:min-h-[70px]" : ""} ${bg}`}
+      className={`relative flex ${wide ? "flex-row items-center gap-3 shrink-0" : "flex-col justify-between h-full"} rounded-2xl p-3 md:p-vp ${light ? "text-neutral-800" : "text-white"} ${bg}`}
     >
       <div className={`absolute right-2 top-2 md:right-3 md:top-3 flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full ${light ? "bg-neutral-800 text-white" : "bg-white/85 text-black"}`}>
         <ArrowUpRight className="h-3 w-3 md:h-4 md:w-4" />
@@ -85,12 +85,11 @@ function SocialCard({
       </div>
 
       <div>
-        <p className="text-xs md:text-sm font-semibold">{label}</p>
-        <p className={`text-[10px] md:text-xs truncate ${light ? "text-neutral-500" : "text-white/75"}`}>
+        <p className="text-xs md:text-v-sm font-semibold">{label}</p>
+        <p className={`text-[10px] md:text-v-2xs truncate ${light ? "text-neutral-500" : "text-white/75"}`}>
           {value}
         </p>
       </div>
     </motion.a>
   )
 }
-
