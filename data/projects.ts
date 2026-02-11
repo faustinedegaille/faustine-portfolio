@@ -75,4 +75,21 @@ export const projects: Project[] = [
     },
     status: "in-progress",
   },
+  {
+    id: "recipe-hub",
+    title: "RecipeHub",
+    description:
+      "Application de découverte de recettes avec recherche, filtres et favoris.",
+    tags: ["next.js", "typescript", "tailwind", "api rest"],
+    thumbnail: "/projects/recipe-app.png",
+    images: ["/projects/recipe-app.png"],
+    details: {
+      context:
+        "Projet personnel pour construire une application complète avec Next.js 16 et React 19. Intégration de l'API TheMealDB pour la recherche et la découverte de recettes.",
+      role: "Développeuse front-end. Conception de l'architecture, intégration de l'API externe et développement de l'ensemble des fonctionnalités.",
+      skills:
+        "Intégration d'une API REST externe. Architecture composants réutilisables. Custom hook pour la gestion d'état. Design responsive mobile-first.",
+    },
+    status: "done",
+  },
 ]

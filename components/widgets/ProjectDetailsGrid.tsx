@@ -8,37 +8,37 @@ export function ProjectDetailsGrid({
   tags: string[]
 }) {
   return (
-    <div className="shrink-0 border-t border-black/5 pt-2 sm:pt-3 md:pt-vg overflow-y-auto max-h-36 sm:max-h-48 md:max-h-64">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 md:gap-vg text-xs md:text-v-sm">
-        <div className="space-y-1 md:space-y-vs">
+    <div className="shrink-0 border-t border-black/5 pt-4 sm:pt-5 md:pt-vp overflow-y-auto max-h-52 sm:max-h-64 md:max-h-80">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-vg">
+        <div className="space-y-2 md:space-y-vs">
           <div className="flex items-center gap-2">
-            <div className="h-2 w-2 rounded-full bg-emerald-500" />
-            <span className="text-[10px] md:text-v-2xs font-medium uppercase tracking-wide text-black/40">Contexte</span>
+            <div className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
+            <span className="text-sm md:text-v-base font-medium uppercase tracking-wide text-black/40">Contexte</span>
           </div>
-          <p className="text-black/70 text-[11px] md:text-v-xs">{details.context}</p>
+          <p className="text-black/70 text-sm md:text-v-base leading-relaxed">{details.context}</p>
         </div>
 
-        <div className="space-y-1 md:space-y-vs">
+        <div className="space-y-2 md:space-y-vs">
           <div className="flex items-center gap-2">
-            <div className="h-2 w-2 rounded-full bg-blue-500" />
-            <span className="text-[10px] md:text-v-2xs font-medium uppercase tracking-wide text-black/40">Mon rôle</span>
+            <div className="h-2.5 w-2.5 rounded-full bg-blue-500" />
+            <span className="text-sm md:text-v-base font-medium uppercase tracking-wide text-black/40">Mon rôle</span>
           </div>
-          <p className="text-black/70 text-[11px] md:text-v-xs">{details.role}</p>
-          <div className="flex flex-wrap gap-1 md:gap-vs pt-1">
+          <p className="text-black/70 text-sm md:text-v-base leading-relaxed">{details.role}</p>
+        </div>
+
+        <div className="space-y-2 md:space-y-vs">
+          <div className="flex items-center gap-2">
+            <div className="h-2.5 w-2.5 rounded-full bg-violet-500" />
+            <span className="text-sm md:text-v-base font-medium uppercase tracking-wide text-black/40">Compétences</span>
+          </div>
+          <p className="text-black/70 text-sm md:text-v-base leading-relaxed">{details.skills}</p>
+          <div className="flex flex-wrap gap-1.5 md:gap-vs pt-1">
             {tags.map((tag) => (
-              <span key={tag} className="px-1.5 md:px-2 py-0.5 bg-black/5 rounded-full text-[10px] md:text-v-2xs font-medium capitalize">
+              <span key={tag} className="px-2.5 md:px-3 py-1 bg-black/5 rounded-full text-sm md:text-v-sm font-medium capitalize">
                 {tag}
               </span>
             ))}
           </div>
-        </div>
-
-        <div className="space-y-1 md:space-y-vs">
-          <div className="flex items-center gap-2">
-            <div className="h-2 w-2 rounded-full bg-violet-500" />
-            <span className="text-[10px] md:text-v-2xs font-medium uppercase tracking-wide text-black/40">Compétences</span>
-          </div>
-          <p className="text-black/70 text-[11px] md:text-v-xs">{details.skills}</p>
         </div>
       </div>
     </div>

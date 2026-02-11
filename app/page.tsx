@@ -1,49 +1,35 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useSyncExternalStore } from "react";
 import { ProfileWidget } from "@/components/widgets/ProfileWidget";
 import { SkillsWidget } from "@/components/widgets/SkillsWidget";
 import { ContactWidget } from "@/components/widgets/ContactWidget";
 import { FocusWidget } from "@/components/widgets/FocusWidget";
 import { ExperienceWidget } from "@/components/widgets/ExperienceWidget";
 
+function getHashSkill() {
+  const hash = window.location.hash.slice(1);
+  return hash.split("/")[0] || null;
+}
+
+function subscribeToHash(callback: () => void) {
+  window.addEventListener("popstate", callback);
+  return () => window.removeEventListener("popstate", callback);
+}
+
 export default function Home() {
-  const [focusSkill, setFocusSkill] = useState<string | null>(() => {
-    if (typeof window !== "undefined") {
-      const initialHash = window.location.hash.slice(1);
-      const skill = initialHash.split("/")[0];
-      return skill || null;
-    }
-    return null;
-  });
+  const focusSkill = useSyncExternalStore(subscribeToHash, getHashSkill, () => null);
 
   const handleOpenFocus = useCallback((skill: string) => {
-    setFocusSkill(skill);
     window.history.pushState({ focusSkill: skill }, "", `#${skill}`);
+    window.dispatchEvent(new PopStateEvent("popstate"));
   }, []);
 
   const handleCloseFocus = useCallback(() => {
-    setFocusSkill(null);
     if (window.location.hash) {
       window.history.pushState(null, "", window.location.pathname);
+      window.dispatchEvent(new PopStateEvent("popstate"));
     }
-  }, []);
-
-  useEffect(() => {
-    const handlePopState = () => {
-      const hash = window.location.hash.slice(1);
-      if (hash) {
-        const skill = hash.split("/")[0];
-        setFocusSkill(skill);
-      } else {
-        setFocusSkill(null);
-      }
-    };
-
-    window.addEventListener("popstate", handlePopState);
-    return () => {
-      window.removeEventListener("popstate", handlePopState);
-    };
   }, []);
 
   return (
