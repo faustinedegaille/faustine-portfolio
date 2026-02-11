@@ -39,8 +39,15 @@ export default function Home() {
           <p className="text-xs md:text-v-xs text-muted-foreground">
             Portfolio
           </p>
-          <h1 className="text-2xl md:text-v-h1 font-semibold leading-tight">
-            Faustine Degaille
+          <h1>
+            <button
+              type="button"
+              onClick={handleCloseFocus}
+              className="text-2xl md:text-v-h1 font-bold leading-tight tracking-tight hover:opacity-70 transition-opacity"
+              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            >
+              Faustine Degaille
+            </button>
           </h1>
           <p className="text-sm md:text-v-sm text-muted-foreground">
             Développeuse front-end & web designer
