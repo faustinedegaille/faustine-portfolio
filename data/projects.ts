@@ -92,4 +92,22 @@ export const projects: Project[] = [
     },
     status: "done",
   },
+  {
+    id: "dice-roller",
+    title: "Dice Roller 3D",
+    description:
+      "Simulateur de lancé de dés en 3D avec animations réalistes et scène interactive.",
+    tags: ["typescript", "threejs", "gsap", "vite"],
+    link: "https://example.com/dice-roller",
+    thumbnail: "/projects/dice.png",
+    images: ["/projects/dice.png"],
+    details: {
+      context:
+        "Projet personnel pour explorer la programmation 3D avec Three.js. Une application permettant de lancer 1 à 4 dés avec des animations de rebond réalistes dans une scène WebGL interactive.",
+      role: "Développeuse front-end. Conception de la scène 3D, génération procédurale des textures de dés via Canvas 2D, et animations GSAP.",
+      skills:
+        "Programmation 3D avec Three.js (éclairage, shadow mapping, OrbitControls). Animations GSAP avec easing réaliste. Génération procédurale de textures via Canvas 2D. Architecture modulaire TypeScript.",
+    },
+    status: "done",
+  },
 ]
