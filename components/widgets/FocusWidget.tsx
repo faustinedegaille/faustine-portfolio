@@ -78,7 +78,7 @@ export function FocusWidget({
       </AnimatePresence>
 
       <CardHeader className="flex items-center justify-between shrink-0 md:px-vp md:py-vg">
-        <CardTitle className="text-base md:text-v-title">
+        <CardTitle className="text-lg md:text-v-title">
           Projets · {skill}
         </CardTitle>
 
@@ -115,7 +115,7 @@ export function FocusWidget({
                 )}
 
                 <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/40 to-transparent px-2 md:px-2.5 py-1.5 md:py-2 md:opacity-0 transition-opacity duration-200 md:group-hover:opacity-100">
-                  <p className="text-[10px] md:text-v-2xs font-medium text-white leading-tight">
+                  <p className="text-xs md:text-v-xs font-medium text-white leading-tight">
                     {project.title}
                   </p>
                 </div>

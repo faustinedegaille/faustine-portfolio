@@ -13,28 +13,28 @@ export function ProjectDetailsGrid({
         <div className="space-y-2 md:space-y-vs">
           <div className="flex items-center gap-2">
             <div className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
-            <span className="text-sm md:text-v-base font-medium uppercase tracking-wide text-black/40">Contexte</span>
+            <span className="text-base md:text-v-base font-medium uppercase tracking-wide text-black/40">Contexte</span>
           </div>
-          <p className="text-black/70 text-sm md:text-v-base leading-relaxed">{details.context}</p>
+          <p className="text-black/70 text-base md:text-v-base leading-relaxed">{details.context}</p>
         </div>
 
         <div className="space-y-2 md:space-y-vs">
           <div className="flex items-center gap-2">
             <div className="h-2.5 w-2.5 rounded-full bg-blue-500" />
-            <span className="text-sm md:text-v-base font-medium uppercase tracking-wide text-black/40">Mon rôle</span>
+            <span className="text-base md:text-v-base font-medium uppercase tracking-wide text-black/40">Mon rôle</span>
           </div>
-          <p className="text-black/70 text-sm md:text-v-base leading-relaxed">{details.role}</p>
+          <p className="text-black/70 text-base md:text-v-base leading-relaxed">{details.role}</p>
         </div>
 
         <div className="space-y-2 md:space-y-vs">
           <div className="flex items-center gap-2">
             <div className="h-2.5 w-2.5 rounded-full bg-violet-500" />
-            <span className="text-sm md:text-v-base font-medium uppercase tracking-wide text-black/40">Compétences</span>
+            <span className="text-base md:text-v-base font-medium uppercase tracking-wide text-black/40">Compétences</span>
           </div>
-          <p className="text-black/70 text-sm md:text-v-base leading-relaxed">{details.skills}</p>
+          <p className="text-black/70 text-base md:text-v-base leading-relaxed">{details.skills}</p>
           <div className="flex flex-wrap gap-1.5 md:gap-vs pt-1">
             {tags.map((tag) => (
-              <span key={tag} className="px-2.5 md:px-3 py-1 bg-black/5 rounded-full text-sm md:text-v-sm font-medium capitalize">
+              <span key={tag} className="px-2.5 md:px-3 py-1 bg-black/5 rounded-full text-base md:text-v-sm font-medium capitalize">
                 {tag}
               </span>
             ))}

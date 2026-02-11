@@ -8,15 +8,15 @@ export function ExperienceWidget() {
   return (
     <Card className="h-full flex flex-col rounded-3xl border-white/60 bg-white/70 backdrop-blur overflow-hidden">
       <CardHeader className="shrink-0 pb-2 md:px-vp md:py-vg md:pb-vs">
-        <CardTitle className="text-base md:text-v-title">Parcours</CardTitle>
+        <CardTitle className="text-xl md:text-v-title">Parcours</CardTitle>
       </CardHeader>
 
-      <CardContent className="flex-1 min-h-0 overflow-y-auto pb-2 md:pb-vs">
-        <div className="relative">
+      <CardContent className="flex-1 min-h-0 overflow-y-auto pb-2 md:pb-vs md:flex md:flex-col">
+        <div className="relative md:flex-1 md:flex md:flex-col">
           {/* Ligne de timeline */}
           <div className="absolute left-[11px] top-2 bottom-2 w-0.5 bg-black/10" />
 
-          <div className="space-y-3 md:space-y-vs">
+          <div className="space-y-3 md:space-y-0 md:flex md:flex-col md:justify-between md:flex-1">
             {experiences.map((exp, index) => (
               <div key={index} className="relative flex gap-2 md:gap-vs">
                 {/* Point de timeline */}
@@ -34,16 +34,16 @@ export function ExperienceWidget() {
                   )}
                 </div>
 
-                <div className="flex-1 min-w-0 pb-1">
+                <div className="flex-1 min-w-0">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-0.5 sm:gap-2">
                     <div className="min-w-0">
-                      <p className="text-xs md:text-v-sm font-semibold text-black/85 leading-tight">{exp.title}</p>
+                      <p className="text-base md:text-v-base font-semibold text-black/85 leading-tight">{exp.title}</p>
                       <div className="flex items-center gap-1 mt-0.5">
                         <MapPin className="h-2.5 w-2.5 md:h-3 md:w-3 text-black/30 shrink-0" />
-                        <p className="text-[10px] md:text-v-2xs text-black/50 truncate">{exp.location}</p>
+                        <p className="text-sm md:text-v-xs text-black/50 truncate">{exp.location}</p>
                       </div>
                     </div>
-                    <span className={`text-[9px] md:text-v-2xs font-medium px-1.5 md:px-2 py-0.5 rounded-full shrink-0 w-fit ${
+                    <span className={`text-sm md:text-v-xs font-medium px-1.5 md:px-2 py-0.5 rounded-full shrink-0 w-fit ${
                       exp.current
                         ? "bg-emerald-100 text-emerald-700"
                         : "bg-black/5 text-black/40"
@@ -52,12 +52,12 @@ export function ExperienceWidget() {
                     </span>
                   </div>
 
-                  <p className="text-[10px] md:text-v-2xs text-black/60 mt-1 leading-relaxed line-clamp-3 md:line-clamp-none">{exp.description}</p>
+                  <p className="text-sm md:text-v-xs text-black/60 mt-0.5 leading-snug line-clamp-2 md:line-clamp-1">{exp.description}</p>
 
                   {exp.tags && (
                     <div className="flex flex-wrap gap-1 mt-1">
                       {exp.tags.map((tag) => (
-                        <span key={tag} className="px-1.5 py-0.5 bg-black/5 text-black/50 text-[8px] md:text-v-2xs font-medium rounded">
+                        <span key={tag} className="px-1.5 py-0.5 bg-black/5 text-black/50 text-xs md:text-v-xs font-medium rounded">
                           {tag}
                         </span>
                       ))}

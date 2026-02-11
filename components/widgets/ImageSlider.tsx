@@ -26,15 +26,15 @@ export function ImageSlider({
     >
       <div className="flex items-center justify-between px-3 md:px-vp py-2 md:py-vs shrink-0">
         <div>
-          <h3 className="text-sm md:text-v-base font-semibold">{project.title}</h3>
+          <h3 className="text-base md:text-v-lg font-semibold">{project.title}</h3>
           {project.status === "in-progress" && (
-            <span className="text-[10px] md:text-v-2xs text-black/50">En cours</span>
+            <span className="text-xs md:text-v-xs text-black/50">En cours</span>
           )}
         </div>
         <div className="flex items-center gap-1.5 md:gap-vs">
           {images.length > 1 ? (
             <>
-              <span className="text-[10px] md:text-v-2xs text-black/50">
+              <span className="text-xs md:text-v-xs text-black/50">
                 {currentIndex + 1} / {images.length}
               </span>
               <button
@@ -55,7 +55,7 @@ export function ImageSlider({
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 md:gap-1.5 px-2 md:px-3 py-1 md:py-1.5 bg-black text-white text-[10px] md:text-v-2xs font-medium rounded-full hover:bg-black/80 transition-colors"
+              className="inline-flex items-center gap-1 md:gap-1.5 px-2 md:px-3 py-1 md:py-1.5 bg-black text-white text-xs md:text-v-sm font-medium rounded-full hover:bg-black/80 transition-colors"
             >
               Voir le projet
               <ExternalLink className="h-2.5 w-2.5 md:h-3 md:w-3" />

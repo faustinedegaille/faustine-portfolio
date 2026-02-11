@@ -16,7 +16,6 @@ export const experiences: Experience[] = [
     description: "Conception UI/UX et développement d'un logiciel de mesure d'impact environnemental pour producteurs cidricoles.",
     type: "work",
     current: true,
-    tags: ["Next.js", "TypeScript", "Figma"],
   },
   {
     year: "2023 - Présent",
@@ -32,7 +31,6 @@ export const experiences: Experience[] = [
     location: "Programme américain",
     description: "Camp d'été intensif pour femmes en tech. Initiation au développement web et mobile.",
     type: "work",
-    tags: ["HTML/CSS", "JavaScript"],
   },
   {
     year: "2021 - 2023",

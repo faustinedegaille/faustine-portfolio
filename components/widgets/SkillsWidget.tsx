@@ -15,10 +15,10 @@ export function SkillsWidget({
   return (
     <Card className="h-full flex flex-col rounded-3xl border-white/60 bg-white/70 backdrop-blur overflow-hidden">
       <CardHeader className="shrink-0 md:px-vp md:py-vg">
-        <CardTitle className="text-base md:text-v-title">Projets par compétences</CardTitle>
+        <CardTitle className="text-xl md:text-v-title">Projets par compétences</CardTitle>
       </CardHeader>
 
-      <CardContent className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 gap-1.5 md:gap-vs flex-1 min-h-0 overflow-y-auto pb-2 md:pb-vs">
+      <CardContent className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 auto-rows-fr gap-1.5 md:gap-vs flex-1 min-h-0 overflow-y-auto pb-2 md:pb-vs">
         {skills.map((s) => {
           const isActive = active === s.title
           const isDimmed = active && !isActive
@@ -36,10 +36,10 @@ export function SkillsWidget({
               className={`relative flex items-center justify-between rounded-xl md:rounded-2xl px-2 md:px-3 py-2.5 md:py-vs bg-white shadow-[0_1px_6px_rgba(0,0,0,0.06)] cursor-pointer transition-opacity min-h-11 ${isDimmed ? "opacity-40" : "opacity-100"}`}
             >
               <div className="flex items-center gap-2 md:gap-2 min-w-0">
-                <div className="flex h-6 w-6 md:h-7 md:w-7 items-center justify-center rounded-full bg-black/5 shrink-0">
-                  <s.icon className="text-xs md:text-v-xs" />
+                <div className="flex h-8 w-8 md:h-10 md:w-10 items-center justify-center rounded-full bg-black/5 shrink-0">
+                  <s.icon className="text-base md:text-v-base" />
                 </div>
-                <p className="text-xs md:text-v-sm font-medium truncate">{s.label}</p>
+                <p className="text-base md:text-v-lg font-medium truncate">{s.label}</p>
               </div>
 
               <AnimatePresence>
@@ -50,7 +50,7 @@ export function SkillsWidget({
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -6 }}
                     transition={{ duration: 0.2 }}
-                    className="text-[10px] md:text-v-2xs font-medium text-black/60 hover:text-black/80 hidden md:block shrink-0"
+                    className="text-sm md:text-v-sm font-medium text-black/60 hover:text-black/80 hidden md:block shrink-0"
                     onClick={(e) => {
                       e.stopPropagation()
                       onCtaClick(s.title)

@@ -33,23 +33,26 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-dvh md:h-dvh bg-[#f6f7fb] px-3 md:px-vp py-4 md:py-vpage md:overflow-hidden">
-      <div className="mx-auto flex h-full max-w-6xl flex-col gap-3 md:gap-vg">
+    <main
+      className={`min-h-dvh md:h-dvh bg-[#f6f7fb] px-3 md:px-vp py-4 md:py-vpage md:overflow-hidden${focusSkill ? " cursor-pointer" : ""}`}
+      onClick={focusSkill ? handleCloseFocus : undefined}
+    >
+      <div className={`mx-auto flex h-full max-w-6xl flex-col gap-3 md:gap-vg${focusSkill ? " cursor-default" : ""}`} onClick={(e) => e.stopPropagation()}>
         <header className="shrink-0">
-          <p className="text-xs md:text-v-xs text-muted-foreground">
+          <p className="text-sm md:text-v-sm text-muted-foreground">
             Portfolio
           </p>
           <h1>
             <button
               type="button"
               onClick={handleCloseFocus}
-              className="text-2xl md:text-v-h1 font-bold leading-tight tracking-tight hover:opacity-70 transition-opacity"
+              className="text-3xl md:text-v-h1 font-bold leading-tight tracking-tight hover:opacity-70 transition-opacity"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
               Faustine Degaille
             </button>
           </h1>
-          <p className="text-sm md:text-v-sm text-muted-foreground">
+          <p className="text-base md:text-v-base text-muted-foreground">
             Développeuse front-end & web designer
           </p>
         </header>

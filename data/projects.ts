@@ -110,4 +110,22 @@ export const projects: Project[] = [
     },
     status: "done",
   },
+  {
+    id: "github-explorer",
+    title: "GitHub Explorer Pro",
+    description:
+      "Plateforme d'exploration GitHub : recherche de repositories et développeurs, statistiques, tendances et favoris.",
+    tags: ["nuxt", "typescript", "sass", "api rest", "chartjs"],
+    link: "https://example.com/github-explorer",
+    thumbnail: "/projects/github-explorer.png",
+    images: ["/projects/github-explorer.png"],
+    details: {
+      context:
+        "Projet d'entraînement personnel pour monter en compétences sur un stack moderne front-end. Application fictive réalisée dans un cadre d'apprentissage.",
+      role: "Développeuse front-end. Conception de l'architecture Nuxt 3, intégration de l'API GitHub via Octokit, système de design Sass et visualisations Chart.js.",
+      skills:
+        "Nuxt 3 avec SSR et composables personnalisés. TypeScript strict. Architecture Sass 7-1 avec theming dark/light. Consommation d'API REST (GitHub, 15+ endpoints). Gestion d'état avec Pinia. Data visualization avec Chart.js.",
+    },
+    status: "done",
+  },
 ]

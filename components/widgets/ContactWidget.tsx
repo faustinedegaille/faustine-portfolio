@@ -15,7 +15,7 @@ export function ContactWidget() {
     >
       <Card className="h-full flex flex-col rounded-3xl border-white/60 bg-white/70 backdrop-blur overflow-hidden">
         <CardHeader className="shrink-0 md:px-vp md:py-vg">
-          <CardTitle className="text-lg md:text-v-title">Contact</CardTitle>
+          <CardTitle className="text-xl md:text-v-title">Contact</CardTitle>
         </CardHeader>
 
         <CardContent className="flex flex-col gap-2 sm:gap-3 md:gap-vg flex-1 min-h-0 pt-2 pb-3 md:pt-vs md:pb-vs overflow-hidden">
@@ -25,14 +25,14 @@ export function ContactWidget() {
               label="GitHub"
               value="@faustinedegaille"
               bg="bg-black"
-              icon={<SiGithub className="h-4 w-4 md:h-5 md:w-5 text-white" />}
+              icon={<SiGithub className="h-5 w-5 md:h-6 md:w-6 text-white" />}
             />
             <SocialCard
               href="https://www.linkedin.com/in/faustine-degaille"
               label="LinkedIn"
               value="faustine-degaille"
               bg="bg-[#3b82c4]"
-              icon={<SiLinkedin className="h-4 w-4 md:h-5 md:w-5 text-white" />}
+              icon={<SiLinkedin className="h-5 w-5 md:h-6 md:w-6 text-white" />}
             />
           </div>
 
@@ -41,7 +41,7 @@ export function ContactWidget() {
             label="Email"
             value="faustine.degaille@gmail.com"
             bg="bg-neutral-100"
-            icon={<Mail className="h-4 w-4 md:h-5 md:w-5 text-neutral-600" />}
+            icon={<Mail className="h-5 w-5 md:h-6 md:w-6 text-neutral-600" />}
             wide
             light
           />
@@ -80,13 +80,13 @@ function SocialCard({
         <ArrowUpRight className="h-3 w-3 md:h-4 md:w-4" />
       </div>
 
-      <div className={`flex h-7 w-7 md:h-9 md:w-9 items-center justify-center rounded-xl ${light ? "bg-neutral-200" : "bg-white/20"} shrink-0`}>
+      <div className={`flex h-9 w-9 md:h-11 md:w-11 items-center justify-center rounded-xl ${light ? "bg-neutral-200" : "bg-white/20"} shrink-0`}>
         {icon}
       </div>
 
       <div>
-        <p className="text-xs md:text-v-sm font-semibold">{label}</p>
-        <p className={`text-[10px] md:text-v-2xs truncate ${light ? "text-neutral-500" : "text-white/75"}`}>
+        <p className="text-base md:text-v-lg font-semibold">{label}</p>
+        <p className={`text-sm md:text-v-base truncate ${light ? "text-neutral-500" : "text-white/75"}`}>
           {value}
         </p>
       </div>
