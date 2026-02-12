@@ -37,13 +37,13 @@ export function ExperienceWidget() {
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-0.5 sm:gap-2">
                     <div className="min-w-0">
-                      <p className="text-base md:text-v-base font-semibold text-black/85 leading-tight">{exp.title}</p>
+                      <p className="text-sm md:text-v-sm font-semibold text-black/85 leading-tight">{exp.title}</p>
                       <div className="flex items-center gap-1 mt-0.5">
                         <MapPin className="h-2.5 w-2.5 md:h-3 md:w-3 text-black/30 shrink-0" />
-                        <p className="text-sm md:text-v-xs text-black/50 truncate">{exp.location}</p>
+                        <p className="text-xs md:text-v-2xs text-black/50 truncate">{exp.location}</p>
                       </div>
                     </div>
-                    <span className={`text-sm md:text-v-xs font-medium px-1.5 md:px-2 py-0.5 rounded-full shrink-0 w-fit ${
+                    <span className={`text-xs md:text-v-2xs font-medium px-1.5 md:px-2 py-0.5 rounded-full shrink-0 w-fit ${
                       exp.current
                         ? "bg-emerald-100 text-emerald-700"
                         : "bg-black/5 text-black/40"
@@ -52,7 +52,7 @@ export function ExperienceWidget() {
                     </span>
                   </div>
 
-                  <p className="text-sm md:text-v-xs text-black/60 mt-0.5 leading-snug line-clamp-2 md:line-clamp-1">{exp.description}</p>
+                  <p className="text-xs md:text-v-2xs text-black/60 mt-0.5 leading-snug line-clamp-2">{exp.description}</p>
 
                   {exp.tags && (
                     <div className="flex flex-wrap gap-1 mt-1">

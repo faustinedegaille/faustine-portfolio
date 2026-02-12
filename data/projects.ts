@@ -31,7 +31,7 @@ export const projects: Project[] = [
         "Projet réalisé dans le cadre de la formation MMI. Un site vitrine pour présenter le Parc des Marais, ses activités et ses informations pratiques.",
       role: "Développeuse front-end et intégratrice. Réalisation de l'intégration complète du site à partir des maquettes.",
       skills:
-        "Intégration HTML/CSS avec Sass. Développement JavaScript pour les interactions. Design responsive et optimisation UI.",
+        "Intégration pixel-perfect depuis maquettes, animations JS custom, adaptation mobile.",
     },
     status: "done",
   },
@@ -49,7 +49,7 @@ export const projects: Project[] = [
         "Projet réalisé sur mon temps personnel pour découvrir Nuxt.js. Une application qui recommande des livres en fonction de l'humeur sélectionnée par l'utilisateur.",
       role: "Développeuse front-end sur ce projet. Intégration des maquettes et développement des fonctionnalités de recommandation. ",
       skills:
-        "Développement avec Nuxt.js et gestion d'état. Intégration responsive et optimisation des performances.",
+        "Routing dynamique, gestion d'état pour le système de recommandation, composants réutilisables.",
     },
     status: "done",
   },
@@ -69,9 +69,9 @@ export const projects: Project[] = [
     details: {
       context:
         "Projet réalisé en alternance chez Altermaker. Un logiciel pour mesurer l'impact environnemental de producteurs de cidre, calvados et produits similaires.",
-      role: "Unique développeuse front-end et web designer. Conception de l'identité visuelle et des maquettes, puis développement complet de l'interface.",
+      role: "Développeuse front-end principale et web designer. Conception de l'identité visuelle et des maquettes, puis développement complet de l'interface.",
       skills:
-        "Autonomie et prise de décision au quotidien. Travail collaboratif via pull requests avec code review systématique.",
+        "Création de formulaires dynamiques, conception UI/UX complète, code review via pull requests.",
     },
     status: "in-progress",
   },
@@ -85,10 +85,10 @@ export const projects: Project[] = [
     images: ["/projects/recipe-app.png"],
     details: {
       context:
-        "Projet personnel pour construire une application complète avec Next.js 16 et React 19. Intégration de l'API TheMealDB pour la recherche et la découverte de recettes.",
+        "Projet d'entraînement. Application de découverte culinaire permettant de rechercher des recettes par nom ou ingrédient, de les filtrer par catégorie et de sauvegarder ses favoris.",
       role: "Développeuse front-end. Conception de l'architecture, intégration de l'API externe et développement de l'ensemble des fonctionnalités.",
       skills:
-        "Intégration d'une API REST externe. Architecture composants réutilisables. Custom hook pour la gestion d'état. Design responsive mobile-first.",
+        "Connexion à une API externe, custom hooks pour la gestion d'état, architecture composants.",
     },
     status: "done",
   },
@@ -106,7 +106,7 @@ export const projects: Project[] = [
         "Projet personnel pour explorer la programmation 3D avec Three.js. Une application permettant de lancer 1 à 4 dés avec des animations de rebond réalistes dans une scène WebGL interactive.",
       role: "Développeuse front-end. Conception de la scène 3D, génération procédurale des textures de dés via Canvas 2D, et animations GSAP.",
       skills:
-        "Programmation 3D avec Three.js (éclairage, shadow mapping, OrbitControls). Animations GSAP avec easing réaliste. Génération procédurale de textures via Canvas 2D. Architecture modulaire TypeScript.",
+        "Scène 3D interactive, génération procédurale de textures, animations physiques réalistes.",
     },
     status: "done",
   },
@@ -121,10 +121,10 @@ export const projects: Project[] = [
     images: ["/projects/github-explorer.png"],
     details: {
       context:
-        "Projet d'entraînement personnel pour monter en compétences sur un stack moderne front-end. Application fictive réalisée dans un cadre d'apprentissage.",
+        "Projet d'entraînement. Plateforme d'exploration GitHub permettant de rechercher des repositories et développeurs, consulter des statistiques détaillées, suivre les tendances et gérer une liste de favoris.",
       role: "Développeuse front-end. Conception de l'architecture Nuxt 3, intégration de l'API GitHub via Octokit, système de design Sass et visualisations Chart.js.",
       skills:
-        "Nuxt 3 avec SSR et composables personnalisés. TypeScript strict. Architecture Sass 7-1 avec theming dark/light. Consommation d'API REST (GitHub, 15+ endpoints). Gestion d'état avec Pinia. Data visualization avec Chart.js.",
+        "Consommation multi-endpoints API GitHub, data visualization, theming dark/light.",
     },
     status: "done",
   },
