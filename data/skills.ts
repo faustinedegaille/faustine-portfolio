@@ -7,6 +7,8 @@ import {
   SiThreedotjs,
   SiSass,
   SiTailwindcss,
+  SiDocker,
+  SiGithub,
 } from "react-icons/si"
 import type { IconType } from "react-icons"
 
@@ -26,4 +28,6 @@ export const skills: Skill[] = [
   { icon: SiTailwindcss, title: "tailwind", label: "Tailwind CSS", cta: "Voir les projets →" },
   { icon: SiFigma, title: "figma", label: "Figma", cta: "Voir les travaux →" },
   { icon: SiAdobe, title: "adobe", label: "Adobe Suite", cta: "Voir les travaux →" },
+  { icon: SiDocker, title: "docker", label: "Docker" },
+  { icon: SiGithub, title: "github", label: "GitHub" },
 ]
