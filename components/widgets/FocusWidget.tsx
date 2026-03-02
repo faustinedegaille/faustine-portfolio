@@ -31,31 +31,11 @@ export function FocusWidget({
 
   const openSlider = (project: Project) => {
     setSelectedProject(project)
-    window.history.pushState({ slider: project.id }, "", `#${skill}/${project.id}`)
   }
 
   const closeSlider = () => {
     setSelectedProject(null)
-    window.history.pushState({ focusSkill: skill }, "", `#${skill}`)
   }
-
-  useEffect(() => {
-    const handlePopState = () => {
-      const hash = window.location.hash.slice(1)
-      if (hash.includes("/")) {
-        const projectId = hash.split("/")[1]
-        const project = filtered.find((p) => p.id === projectId)
-        if (project) {
-          setSelectedProject(project)
-        }
-      } else {
-        setSelectedProject(null)
-      }
-    }
-
-    window.addEventListener("popstate", handlePopState)
-    return () => window.removeEventListener("popstate", handlePopState)
-  }, [filtered])
 
   const handleProjectClick = (project: Project, e: React.MouseEvent) => {
     e.preventDefault()

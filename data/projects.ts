@@ -98,7 +98,7 @@ export const projects: Project[] = [
     description:
       "Simulateur de lancé de dés en 3D avec animations réalistes et scène interactive.",
     tags: ["typescript", "threejs", "gsap", "vite"],
-    link: "https://example.com/dice-roller",
+    link: "https://dice-rolling-jade.vercel.app",
     thumbnail: "/projects/dice.png",
     images: ["/projects/dice.png"],
     details: {
