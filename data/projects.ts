@@ -116,7 +116,7 @@ export const projects: Project[] = [
     description:
       "Plateforme d'exploration GitHub : recherche de repositories et développeurs, statistiques, tendances et favoris.",
     tags: ["nuxt", "typescript", "sass", "api rest", "chartjs"],
-    link: "https://example.com/github-explorer",
+    link: "https://github-explorer-portfolio.vercel.app",
     thumbnail: "/projects/github-explorer.png",
     images: ["/projects/github-explorer.png"],
     details: {
