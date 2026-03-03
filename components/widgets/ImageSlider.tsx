@@ -39,12 +39,14 @@ export function ImageSlider({
               </span>
               <button
                 onClick={goToPrevious}
+                aria-label="Image précédente"
                 className="flex h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full border border-black/5 bg-white/70 hover:bg-white transition-colors"
               >
                 <ChevronLeft className="h-3.5 w-3.5 md:h-4 md:w-4" />
               </button>
               <button
                 onClick={goToNext}
+                aria-label="Image suivante"
                 className="flex h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full border border-black/5 bg-white/70 hover:bg-white transition-colors"
               >
                 <ChevronRight className="h-3.5 w-3.5 md:h-4 md:w-4" />
@@ -63,6 +65,7 @@ export function ImageSlider({
           ) : null}
           <button
             onClick={onClose}
+            aria-label="Fermer"
             className="flex h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full border border-black/5 bg-white/70 hover:bg-white transition-colors"
           >
             <X className="h-3.5 w-3.5 md:h-4 md:w-4" />

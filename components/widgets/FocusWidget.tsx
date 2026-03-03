@@ -65,6 +65,7 @@ export function FocusWidget({
         <button
           type="button"
           onClick={onClose}
+          aria-label="Fermer"
           className="flex h-8 w-8 items-center justify-center rounded-full border border-black/5 bg-white/70"
         >
           <X className="h-4 w-4" />
