@@ -22,7 +22,7 @@ export function ProfileWidget() {
         <div className="grid grid-cols-[90px_1fr] sm:grid-cols-[100px_1fr] md:grid-cols-[clamp(120px,12vw,220px)_1fr] gap-3 md:gap-vg h-full">
           <div className="relative min-h-30 sm:min-h-35 h-full overflow-hidden rounded-2xl md:rounded-3xl ring-1 ring-black/10">
             <Image
-              src="/images/avatar.png"
+              src="/images/avatar.webp"
               alt="Avatar"
               fill
               priority
