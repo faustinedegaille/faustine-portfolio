@@ -35,27 +35,19 @@ export function ProfileWidget() {
               <p className="text-lg sm:text-xl md:text-v-base font-semibold leading-tight">
                 Développeuse front-end
                 <br />
-                Web designer
+                Designer UI/UX
               </p>
 
-              <div className="space-y-0.5">
-                <p className="text-base md:text-v-base font-medium">
-                  BUT MMI · 3ᵉ année
-                </p>
-                <p className="text-sm md:text-v-sm text-muted-foreground">
-                  IUT de Troyes
-                </p>
-              </div>
+              <p className="text-xs sm:text-sm md:text-v-sm text-muted-foreground leading-snug">
+                Je conçois et intègre des interfaces web soignées, à la croisée du design et du code. Actuellement en alternance chez Altermaker, je rejoins l'ECV en 2026 pour un mastère en UI/UX Design.
+              </p>
 
-              <div className="flex flex-wrap gap-1.5 md:gap-vs pt-1 md:pt-vs">
+              <div className="flex flex-wrap gap-1.5 md:gap-vs pt-0.5">
                 <span className="rounded-full bg-black/5 px-2 sm:px-2.5 md:px-3 py-0.5 md:py-[0.4vh] text-xs sm:text-sm md:text-v-sm font-medium">
-                  Alternance · Altermaker
+                  BUT MMI · IUT de Troyes
                 </span>
                 <span className="rounded-full bg-black/5 px-2 sm:px-2.5 md:px-3 py-0.5 md:py-[0.4vh] text-xs sm:text-sm md:text-v-sm text-muted-foreground">
-                  Développement front-end
-                </span>
-                <span className="rounded-full bg-black/5 px-2 sm:px-2.5 md:px-3 py-0.5 md:py-[0.4vh] text-xs sm:text-sm md:text-v-sm text-muted-foreground">
-                  Web design
+                  Mastère UI/UX · ECV · 2026
                 </span>
               </div>
             </div>
@@ -67,7 +59,7 @@ export function ProfileWidget() {
                 className="h-8 md:h-[3.2vh] w-full rounded-full text-sm md:text-v-sm border-0 shadow-none"
               >
                 <Link
-                  href="/docs/CV_DEGAILLE.pdf"
+                  href="/projects/CV%20webdesigner.pdf"
                   target="_blank"
                   rel="noreferrer"
                 >

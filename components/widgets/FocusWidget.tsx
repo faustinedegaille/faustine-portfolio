@@ -8,8 +8,7 @@ import { useState, useEffect } from "react"
 import { AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { ImageSlider } from "./ImageSlider"
-
-const TOTAL_SLOTS = 4
+import { PdfViewer } from "./PdfViewer"
 
 export function FocusWidget({
   skill,
@@ -22,12 +21,13 @@ export function FocusWidget({
     p.tags.includes(skill)
   )
 
-  const placeholdersCount = Math.max(
-    TOTAL_SLOTS - filtered.length,
-    0
-  )
+  const count = filtered.length
+  const cols = count === 1 ? 1 : 2
+  const rows = count === 1 ? 1 : Math.ceil(count / 2)
 
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(
+    filtered.length === 1 ? filtered[0] : null
+  )
 
   const openSlider = (project: Project) => {
     setSelectedProject(project)
@@ -41,6 +41,8 @@ export function FocusWidget({
     e.preventDefault()
     if (project.images && project.images.length > 0) {
       openSlider(project)
+    } else if (project.pdf) {
+      openSlider(project)
     } else if (project.link) {
       window.open(project.link, "_blank", "noopener,noreferrer")
     }
@@ -49,12 +51,17 @@ export function FocusWidget({
   return (
     <Card className="h-full flex flex-col rounded-3xl border-white/60 bg-white/70 backdrop-blur overflow-hidden relative">
       <AnimatePresence>
-        {selectedProject && (
+        {selectedProject && selectedProject.pdf ? (
+          <PdfViewer
+            project={selectedProject}
+            onClose={closeSlider}
+          />
+        ) : selectedProject ? (
           <ImageSlider
             project={selectedProject}
             onClose={closeSlider}
           />
-        )}
+        ) : null}
       </AnimatePresence>
 
       <CardHeader className="flex items-center justify-between shrink-0 md:px-vp md:py-vg">
@@ -72,15 +79,42 @@ export function FocusWidget({
         </button>
       </CardHeader>
 
-      <CardContent className="flex-1 min-h-0 overflow-hidden">
-        <div className="grid grid-cols-2 grid-rows-2 gap-2 md:gap-vg h-full">
+      {skill === "figma" && (
+        <div className="shrink-0 mx-4 md:mx-vp mb-2 rounded-xl bg-black/5 px-3 py-2 text-xs md:text-v-xs text-black/60 leading-snug">
+          Tous les projets de développement web réalisés en entreprise présents existent également sous forme de maquettes Figma et je suis la webdesigner qui les a conçues avant des les intégrer.
+        </div>
+      )}
+      <CardContent className="flex-1 min-h-0 overflow-hidden flex items-center justify-center">
+        {count === 0 ? (
+          <div className="relative w-full h-full">
+            <div className="grid grid-cols-2 grid-rows-2 gap-2 md:gap-vg h-full blur-md pointer-events-none select-none">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <div key={i} className="rounded-xl overflow-hidden">
+                  <div className="h-full w-full bg-gradient-to-br from-black/10 to-black/5" />
+                </div>
+              ))}
+            </div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <p className="text-sm md:text-v-sm text-black/50 text-center px-6 font-medium">
+                Plusieurs projets ont été réalisés avec cet outil. Ils seront disponibles ici très prochainement !
+              </p>
+            </div>
+          </div>
+        ) : (
+        <div
+          className={`grid gap-2 md:gap-vg w-full ${count > 2 ? "h-full" : ""}`}
+          style={{
+            gridTemplateColumns: `repeat(${cols}, 1fr)`,
+            ...(count > 2 ? { gridTemplateRows: `repeat(${rows}, 1fr)` } : {}),
+          }}
+        >
           {filtered.map((project) => {
             const thumbnailSrc = project.thumbnail
             return (
               <button
                 key={project.id}
                 onClick={(e) => handleProjectClick(project, e)}
-                className="group relative overflow-hidden rounded-xl bg-black/5 text-left h-full w-full min-h-28 sm:min-h-36"
+                className={`group relative overflow-hidden rounded-xl bg-black/5 text-left w-full min-h-28 sm:min-h-36 ${count > 2 ? "h-full" : "aspect-video"}`}
               >
                 {thumbnailSrc ? (
                   <div className="relative h-full w-full">
@@ -107,14 +141,8 @@ export function FocusWidget({
               </button>
             )
           })}
-
-          {Array.from({ length: placeholdersCount }).map((_, i) => (
-            <div
-              key={i}
-              className="rounded-xl bg-black/5 h-full w-full min-h-28 sm:min-h-36"
-            />
-          ))}
         </div>
+        )}
       </CardContent>
     </Card>
   )
