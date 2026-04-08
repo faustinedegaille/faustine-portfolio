@@ -9,6 +9,7 @@ import { AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { ImageSlider } from "./ImageSlider"
 import { PdfViewer } from "./PdfViewer"
+import { PdfThumbnail } from "./PdfThumbnail"
 
 export function FocusWidget({
   skill,
@@ -125,6 +126,8 @@ export function FocusWidget({
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
+                ) : project.pdf ? (
+                  <PdfThumbnail url={project.pdf} />
                 ) : (
                   <div className="h-full w-full bg-black/10" />
                 )}

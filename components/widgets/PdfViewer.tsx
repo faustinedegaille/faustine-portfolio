@@ -5,8 +5,6 @@ import type { Project } from "@/data/projects"
 import { motion } from "framer-motion"
 import { ProjectDetailsGrid } from "./ProjectDetailsGrid"
 
-const basePath = process.env.NODE_ENV === "production" ? "/portfolio" : ""
-
 export function PdfViewer({
   project,
   onClose,
@@ -14,7 +12,7 @@ export function PdfViewer({
   project: Project
   onClose: () => void
 }) {
-  const pdfUrl = basePath + project.pdf
+  const pdfUrl = project.pdf ?? ""
 
   return (
     <motion.div
