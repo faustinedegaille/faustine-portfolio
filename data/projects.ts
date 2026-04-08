@@ -25,8 +25,8 @@ export const projects: Project[] = [
       "Site vitrine réalisé dans un cadre pédagogique pour présenter le Parc des Marais.",
     tags: ["javascript", "html", "css", "ui", "responsive", "sass"],
     link: "http://mmi23g08.sae301dev.ovh/",
-    thumbnail: "/portfolio/projects/parc-des-marais.png",
-    images: ["/portfolio/projects/parc-des-marais.png"],
+    thumbnail: "/projects/parc-des-marais.png",
+    images: ["/projects/parc-des-marais.png"],
     details: {
       context:
         "Projet réalisé dans le cadre de la formation MMI. Un site vitrine pour présenter le Parc des Marais, ses activités et ses informations pratiques.",
@@ -43,8 +43,8 @@ export const projects: Project[] = [
       "Application de recommandation de livres basée sur l'humeur de l'utilisateur.",
     tags: ["nuxt", "typescript", "tailwind"],
     link: "http://mmi23h04.mmi-troyes.fr/portfolio/bookmood/",
-    thumbnail: "/portfolio/projects/bookmood.png",
-    images: ["/portfolio/projects/bookmood.png"],
+    thumbnail: "/projects/bookmood.png",
+    images: ["/projects/bookmood.png"],
     details: {
       context:
         "Projet réalisé sur mon temps personnel pour découvrir Nuxt.js. Une application qui recommande des livres en fonction de l'humeur sélectionnée par l'utilisateur.",
@@ -60,8 +60,8 @@ export const projects: Project[] = [
     description:
       "Portfolio interactif présentant mes projets et compétences avec des animations fluides et un design bento.",
     tags: ["next.js", "typescript", "tailwind", "framer-motion"],
-    thumbnail: "/portfolio/projects/portfolio.png",
-    images: ["/portfolio/projects/portfolio.png"],
+    thumbnail: "/projects/portfolio.png",
+    images: ["/projects/portfolio.png"],
     details: {
       context:
         "Projet personnel. Conception et développement de mon portfolio pour présenter mes projets, compétences et parcours dans un format bento moderne et interactif.",
@@ -77,12 +77,12 @@ export const projects: Project[] = [
     description:
       "Application de création et gestion de questionnaires.",
     tags: ["next.js", "typescript", "tailwind"],
-    thumbnail: "/portfolio/projects/creation-projet.PNG",
+    thumbnail: "/projects/creation-projet.PNG",
     images: [
-      "/portfolio/projects/creation-projet.PNG",
-      "/portfolio/projects/projects-card.PNG",
-      "/portfolio/projects/questionnaire.PNG",
-      "/portfolio/projects/questionnaire-NSP.PNG",
+      "/projects/creation-projet.PNG",
+      "/projects/projects-card.PNG",
+      "/projects/questionnaire.PNG",
+      "/projects/questionnaire-NSP.PNG",
     ],
     details: {
       context:
@@ -100,8 +100,8 @@ export const projects: Project[] = [
       "Application de découverte de recettes avec recherche, filtres et favoris.",
     tags: ["next.js", "typescript", "tailwind", "api rest"],
     link: "http://mmi23h04.mmi-troyes.fr/portfolio/recipe-app/",
-    thumbnail: "/portfolio/projects/recipe-app.png",
-    images: ["/portfolio/projects/recipe-app.png"],
+    thumbnail: "/projects/recipe-app.png",
+    images: ["/projects/recipe-app.png"],
     details: {
       context:
         "Projet d'entraînement. Application de découverte culinaire permettant de rechercher des recettes par nom ou ingrédient, de les filtrer par catégorie et de sauvegarder ses favoris.",
@@ -118,8 +118,8 @@ export const projects: Project[] = [
       "Simulateur de lancé de dés en 3D avec animations réalistes et scène interactive.",
     tags: ["typescript", "threejs", "gsap", "vite"],
     link: "http://mmi23h04.mmi-troyes.fr/portfolio/dice-rolling/",
-    thumbnail: "/portfolio/projects/dice.png",
-    images: ["/portfolio/projects/dice.png"],
+    thumbnail: "/projects/dice.png",
+    images: ["/projects/dice.png"],
     details: {
       context:
         "Projet personnel pour explorer la programmation 3D avec Three.js. Une application permettant de lancer 1 à 4 dés avec des animations de rebond réalistes dans une scène WebGL interactive.",
@@ -136,8 +136,8 @@ export const projects: Project[] = [
       "Plateforme d'exploration GitHub : recherche de repositories et développeurs, statistiques, tendances et favoris.",
     tags: ["nuxt", "typescript", "sass", "api rest", "chartjs"],
     link: "http://mmi23h04.mmi-troyes.fr/portfolio/github-explorer/",
-    thumbnail: "/portfolio/projects/github-explorer.png",
-    images: ["/portfolio/projects/github-explorer.png"],
+    thumbnail: "/projects/github-explorer.png",
+    images: ["/projects/github-explorer.png"],
     details: {
       context:
         "Projet d'entraînement. Plateforme d'exploration GitHub permettant de rechercher des repositories et développeurs, consulter des statistiques détaillées, suivre les tendances et gérer une liste de favoris.",
