@@ -39,15 +39,12 @@ export function ProfileWidget() {
               </p>
 
               <p className="text-xs sm:text-sm md:text-v-sm text-muted-foreground leading-snug">
-                Je conçois et intègre des interfaces web soignées, à la croisée du design et du code. Actuellement en alternance chez Altermaker, je rejoins l'ECV en 2026 pour un mastère en UI/UX Design.
+                Je conçois et intègre des interfaces web soignées, à la croisée du design et du code. Actuellement en alternance chez Altermaker.
               </p>
 
               <div className="flex flex-wrap gap-1.5 md:gap-vs pt-0.5">
                 <span className="rounded-full bg-black/5 px-2 sm:px-2.5 md:px-3 py-0.5 md:py-[0.4vh] text-xs sm:text-sm md:text-v-sm font-medium">
                   BUT MMI · IUT de Troyes
-                </span>
-                <span className="rounded-full bg-black/5 px-2 sm:px-2.5 md:px-3 py-0.5 md:py-[0.4vh] text-xs sm:text-sm md:text-v-sm text-muted-foreground">
-                  Mastère UI/UX · ECV · 2026
                 </span>
               </div>
             </div>
