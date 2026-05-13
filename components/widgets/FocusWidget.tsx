@@ -132,13 +132,13 @@ export function FocusWidget({
                   <div className="h-full w-full bg-black/10" />
                 )}
 
-                <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/40 to-transparent px-2 md:px-2.5 py-1.5 md:py-2 md:opacity-0 transition-opacity duration-200 md:group-hover:opacity-100">
+                <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/50 to-transparent px-2 md:px-2.5 py-1.5 md:py-2">
                   <p className="text-xs md:text-v-xs font-medium text-white leading-tight">
                     {project.title}
                   </p>
                 </div>
 
-                <div className="absolute right-1.5 top-1.5 md:right-2 md:top-2 flex h-5 w-5 md:h-6 md:w-6 items-center justify-center rounded-full bg-white/90 text-black md:opacity-0 transition-opacity duration-200 md:group-hover:opacity-100">
+                <div className="absolute right-1.5 top-1.5 md:right-2 md:top-2 flex h-5 w-5 md:h-6 md:w-6 items-center justify-center rounded-full bg-white/90 text-black transition-transform duration-200 group-hover:scale-110">
                   <ArrowUpRight className="h-2.5 w-2.5 md:h-3 md:w-3" />
                 </div>
               </button>

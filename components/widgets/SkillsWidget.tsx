@@ -2,6 +2,7 @@
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { motion, AnimatePresence } from "framer-motion"
+import { ArrowUpRight } from "lucide-react"
 import { useState } from "react"
 import { skills } from "@/data/skills"
 
@@ -45,24 +46,30 @@ export function SkillsWidget({
                 <p className="text-sm md:text-v-base font-medium truncate">{s.label}</p>
               </div>
 
-              <AnimatePresence>
-                {isActive && s.cta && (
-                  <motion.button
-                    type="button"
-                    initial={{ opacity: 0, x: -6 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -6 }}
-                    transition={{ duration: 0.2 }}
-                    className="text-xs md:text-v-2xs font-medium text-black/60 hover:text-black/80 hidden md:block shrink-0"
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      onCtaClick(s.title)
-                    }}
+              {s.cta && (
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <AnimatePresence>
+                    {isActive && (
+                      <motion.span
+                        initial={{ opacity: 0, x: -4 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -4 }}
+                        transition={{ duration: 0.2 }}
+                        className="text-xs md:text-v-2xs font-medium text-black/50 hidden md:block whitespace-nowrap"
+                      >
+                        Voir les projets
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
+                  <div
+                    className={`flex h-5 w-5 items-center justify-center rounded-full transition-colors duration-200 ${
+                      isActive ? "bg-black text-white" : "bg-black/8 text-black/35"
+                    }`}
                   >
-                    {s.cta}
-                  </motion.button>
-                )}
-              </AnimatePresence>
+                    <ArrowUpRight className="h-3 w-3" />
+                  </div>
+                </div>
+              )}
             </motion.div>
           )
         })}
