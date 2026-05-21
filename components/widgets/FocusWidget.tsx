@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { X, ArrowUpRight, Mic } from "lucide-react"
+import { X, ArrowUpRight } from "lucide-react"
 import { projects } from "@/data/projects"
 import type { Project } from "@/data/projects"
 import { useState } from "react"
@@ -91,21 +91,26 @@ export function FocusWidget({
         {skill === "influence-litteraire" ? (
           <div className="w-full h-full flex flex-col gap-5">
 
+            {/* Intro */}
+            <p className="text-sm text-black/60 leading-relaxed shrink-0">
+              Influenceuse littéraire depuis <span className="font-medium text-black">janvier 2023</span>, je partage mes lectures, revues et univers visuels sur Instagram et TikTok. J'ai la chance d'être partenaire de <span className="font-medium text-black">4 maisons d'édition reconnues</span>.
+            </p>
+
             {/* Partenariats */}
-            <div>
-              <p className="text-[11px] font-medium text-black/35 uppercase tracking-widest mb-3">Partenariats annuels</p>
-              <div className="grid grid-cols-2 gap-2.5">
+            <div className="shrink-0">
+              <p className="text-[11px] font-medium text-black/35 uppercase tracking-widest mb-2.5">Partenariats annuels</p>
+              <div className="grid grid-cols-4 gap-2">
                 {[
-                  { name: "Adonia", logo: "/projects/adonia.webp", badge: "+1 an" },
+                  { name: "Adonia", logo: "/projects/adonia.webp" },
                   { name: "Albin Michel Stories", logo: "/projects/albinmichel.png" },
                   { name: "Comet", logo: "/projects/comet.webp" },
                   { name: "Vibes Poche", logo: "/projects/vibes-poche.jpg" },
                 ].map((p) => (
                   <div
                     key={p.name}
-                    className="relative group rounded-xl border border-black/8 bg-white px-5 py-4 flex items-center justify-center"
+                    className="relative group rounded-xl border border-black/8 bg-white px-3 py-4 flex items-center justify-center"
                   >
-                    <div className="relative h-9 w-full">
+                    <div className="relative h-11 w-full">
                       <Image
                         src={p.logo}
                         alt={p.name}
@@ -113,11 +118,6 @@ export function FocusWidget({
                         className="object-contain transition-transform duration-300 group-hover:scale-[1.03]"
                       />
                     </div>
-                    {p.badge && (
-                      <span className="absolute top-2 right-2 text-[9px] font-semibold bg-black text-white rounded-full px-1.5 py-0.5 leading-none">
-                        {p.badge}
-                      </span>
-                    )}
                   </div>
                 ))}
               </div>
@@ -170,7 +170,7 @@ export function FocusWidget({
             </div>
 
             {/* Réseaux & podcast */}
-            <div className="flex flex-wrap gap-2 mt-auto shrink-0">
+            <div className="flex items-center gap-2 mt-auto shrink-0">
               <a
                 href="https://www.tiktok.com/@books_by_fau"
                 target="_blank"
@@ -180,10 +180,14 @@ export function FocusWidget({
                 <SiTiktok className="h-3.5 w-3.5" />
                 @books_by_fau
               </a>
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-white px-3 py-1.5 text-sm font-medium">
-                <Mic className="h-3.5 w-3.5 text-black/40" />
-                <span>Coin Lecture</span>
-                <span className="text-black/35 font-normal">· refonte en cours</span>
+              <div className="flex items-center gap-2.5 rounded-xl border border-black/8 bg-white px-3 py-2">
+                <div className="relative h-8 w-8 rounded-lg overflow-hidden shrink-0">
+                  <Image src="/projects/Coin%20lecture.png" alt="Coin Lecture" fill className="object-cover" />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold leading-tight">Coin Lecture</p>
+                  <p className="text-[10px] text-black/40 leading-tight">Podcast · refonte en cours</p>
+                </div>
               </div>
             </div>
 
