@@ -91,10 +91,29 @@ export function FocusWidget({
         {skill === "influence-litteraire" ? (
           <div className="w-full h-full flex flex-col gap-5">
 
-            {/* Intro */}
-            <p className="text-sm text-black/60 leading-relaxed shrink-0">
-              Influenceuse littéraire depuis <span className="font-medium text-black">janvier 2023</span>, je partage mes lectures, revues et univers visuels sur Instagram et TikTok. J'ai la chance d'être partenaire de <span className="font-medium text-black">4 maisons d'édition reconnues</span>.
-            </p>
+            {/* Top : texte + podcast */}
+            <div className="grid grid-cols-5 gap-3 shrink-0">
+              <div className="col-span-3 rounded-xl border border-black/8 bg-white px-5 py-4 flex flex-col gap-2">
+                <p className="text-[11px] font-medium text-black/35 uppercase tracking-widest">Démarche & réseaux</p>
+                <p className="text-sm text-black/60 leading-relaxed">
+                  Depuis <span className="font-medium text-black">janvier 2023</span>, je construis une présence littéraire sur Instagram et TikTok autour d'une identité visuelle forte et cohérente. Chaque contenu — revue, aesthetic, post partenariat — est conçu comme une pièce graphique à part entière. Ce projet m'a appris à gérer une ligne éditoriale, à négocier avec des maisons d'édition et à développer une sensibilité entre création de contenu et storytelling visuel.
+                </p>
+              </div>
+              <div className="col-span-2 rounded-xl border border-black/8 bg-white px-4 py-4 flex flex-col gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="relative h-11 w-11 rounded-xl overflow-hidden shrink-0">
+                    <Image src="/projects/Coin%20lecture.png" alt="Coin Lecture" fill className="object-cover" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold leading-tight">Coin Lecture</p>
+                    <span className="text-[10px] text-black/40">Podcast</span>
+                  </div>
+                </div>
+                <p className="text-xs text-black/55 leading-relaxed">
+                  En parallèle de mes réseaux, j'ai lancé un podcast autour de la lecture. Il est en pleine refonte — nouvelle identité, nouveau format — les épisodes seront de nouveau disponibles prochainement.
+                </p>
+              </div>
+            </div>
 
             {/* Partenariats */}
             <div className="shrink-0">
@@ -169,8 +188,17 @@ export function FocusWidget({
               </div>
             </div>
 
-            {/* Réseaux & podcast */}
+            {/* Réseaux */}
             <div className="flex items-center gap-2 mt-auto shrink-0">
+              <a
+                href="https://www.instagram.com/books_by_fau/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-white px-3 py-1.5 text-sm font-medium hover:bg-black/5 transition-colors"
+              >
+                <SiInstagram className="h-3.5 w-3.5" />
+                @books_by_fau
+              </a>
               <a
                 href="https://www.tiktok.com/@books_by_fau"
                 target="_blank"
@@ -180,15 +208,6 @@ export function FocusWidget({
                 <SiTiktok className="h-3.5 w-3.5" />
                 @books_by_fau
               </a>
-              <div className="flex items-center gap-2.5 rounded-xl border border-black/8 bg-white px-3 py-2">
-                <div className="relative h-8 w-8 rounded-lg overflow-hidden shrink-0">
-                  <Image src="/projects/Coin%20lecture.png" alt="Coin Lecture" fill className="object-cover" />
-                </div>
-                <div>
-                  <p className="text-xs font-semibold leading-tight">Coin Lecture</p>
-                  <p className="text-[10px] text-black/40 leading-tight">Podcast · refonte en cours</p>
-                </div>
-              </div>
             </div>
 
           </div>
