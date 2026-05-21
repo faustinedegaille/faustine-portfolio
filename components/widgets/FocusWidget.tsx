@@ -96,7 +96,7 @@ export function FocusWidget({
               <div className="col-span-3 rounded-xl border border-black/8 bg-white px-5 py-4 flex flex-col gap-2">
                 <p className="text-[11px] font-medium text-black/35 uppercase tracking-widest">Démarche & réseaux</p>
                 <p className="text-sm text-black/60 leading-relaxed">
-                  Depuis <span className="font-medium text-black">janvier 2023</span>, je construis une présence littéraire sur Instagram et TikTok autour d'une identité visuelle forte et cohérente. Chaque contenu — revue, aesthetic, post partenariat — est conçu comme une pièce graphique à part entière. Ce projet m'a appris à gérer une ligne éditoriale, à négocier avec des maisons d'édition et à développer une sensibilité entre création de contenu et storytelling visuel.
+                  Depuis <span className="font-medium text-black">janvier 2023</span>, je construis une présence littéraire sur Instagram et TikTok autour d'une identité visuelle forte et cohérente. J'accorde autant d'importance au visuel qu'au contenu — chaque publication est pensée pour être cohérente avec l'univers du livre présenté. Ce projet m'a appris à gérer une ligne éditoriale, à négocier avec des maisons d'édition et à développer une sensibilité entre création de contenu et storytelling visuel.
                 </p>
               </div>
               <div className="col-span-2 rounded-xl border border-black/8 bg-white px-4 py-4 flex flex-col gap-3">
