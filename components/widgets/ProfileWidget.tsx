@@ -33,13 +33,13 @@ export function ProfileWidget() {
           <div className="flex flex-col justify-between h-full min-w-0">
             <div className="space-y-1.5 md:space-y-vs">
               <p className="text-lg sm:text-xl md:text-v-base font-semibold leading-tight">
-                Développeuse front-end
+                UI/UX Designer · Digital Creative
                 <br />
-                Designer UI/UX
+                <span className="font-normal text-black/60">Développeuse front-end</span>
               </p>
 
               <p className="text-xs sm:text-sm md:text-v-sm text-muted-foreground leading-snug">
-                Je conçois et intègre des interfaces web soignées, à la croisée du design et du code. Actuellement en alternance chez Altermaker.
+                Je conçois des expériences digitales immersives et cohérentes, mêlant UI/UX design, direction visuelle et culture digitale.
               </p>
 
               <div className="flex flex-wrap gap-1.5 md:gap-vs pt-0.5">

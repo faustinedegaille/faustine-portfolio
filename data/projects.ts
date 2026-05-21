@@ -76,7 +76,7 @@ export const projects: Project[] = [
     title: "Application Questionnaire",
     description:
       "Application de création et gestion de questionnaires.",
-    tags: ["next.js", "typescript", "tailwind"],
+    tags: ["next.js", "typescript", "tailwind", "figma"],
     thumbnail: "/projects/creation-projet.PNG",
     images: [
       "/projects/creation-projet.PNG",
@@ -87,7 +87,7 @@ export const projects: Project[] = [
     details: {
       context:
         "Projet réalisé en alternance chez Altermaker. Un logiciel pour mesurer l'impact environnemental de producteurs de cidre, calvados et produits similaires.",
-      role: "Développeuse front-end principale et web designer. Conception de l'identité visuelle et des maquettes, puis développement complet de l'interface.",
+      role: "Web designer du projet. Concevoir des maquettes accessibles pour des utilisateurs non techniques — peu familiers des données complexes de l'ACV — a représenté un vrai défi de vulgarisation visuelle et d'UX.",
       skills:
         "Création de formulaires dynamiques, conception UI/UX complète, code review via pull requests.",
     },
@@ -208,6 +208,42 @@ export const projects: Project[] = [
       role: "Web designer. Conception complète de l'interface, de l'expérience utilisateur et du prototypage de l'application.",
       skills:
         "UX research, maquettage Figma, design d'interface applicative, accessibilité, prototypage interactif.",
+    },
+    status: "done",
+  },
+  {
+    id: "content-canva",
+    title: "Visuels aesthetic",
+    description: "Créations visuelles aesthetic réalisées avec Canva pour les réseaux sociaux littéraires.",
+    tags: ["canva"],
+    thumbnail: "/projects/Better%20than%20the%20movies%20aesthetic.png",
+    images: [
+      "/projects/Better%20than%20the%20movies%20aesthetic.png",
+      "/projects/Aesthetic%20damnatis.png",
+      "/projects/tempted%20aesthetic.png",
+    ],
+    details: {
+      context: "Visuels conçus pour le compte @books_by_fau sur Instagram et TikTok, dans le cadre de l'influence littéraire.",
+      role: "Créatrice de contenu et directrice artistique. Conception des visuels, choix typographiques et mise en scène aesthetic.",
+      skills: "Direction artistique, identité visuelle cohérente, Canva, création de contenu.",
+    },
+    status: "done",
+  },
+  {
+    id: "reviews-canva",
+    title: "Revues visuelles",
+    description: "Visuels de revues de livres réalisés avec Canva pour les réseaux sociaux littéraires.",
+    tags: ["canva"],
+    thumbnail: "/projects/Revue%20Damnatis.png",
+    images: [
+      "/projects/Revue%20Damnatis.png",
+      "/projects/Breathe%20avis.png",
+      "/projects/Nos%20%C3%A2mes%20consum%C3%A9es.png",
+    ],
+    details: {
+      context: "Revues visuelles conçues pour le compte @books_by_fau, mettant en avant mes avis de lecture de façon graphique.",
+      role: "Créatrice de contenu et directrice artistique. Conception des visuels de revues, mise en page et direction artistique.",
+      skills: "Direction artistique, mise en page, typographie, Canva, création de contenu.",
     },
     status: "done",
   },

@@ -53,7 +53,7 @@ export default function Home() {
             </button>
           </h1>
           <p className="text-base md:text-v-base text-muted-foreground">
-            Développeuse front-end & web designer
+            UI/UX Designer · Digital Creative · Développeuse front-end
           </p>
         </header>
 

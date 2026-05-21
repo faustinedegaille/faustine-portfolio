@@ -1,12 +1,13 @@
 "use client"
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { X, ArrowUpRight } from "lucide-react"
+import { X, ArrowUpRight, Mic } from "lucide-react"
 import { projects } from "@/data/projects"
 import type { Project } from "@/data/projects"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { AnimatePresence } from "framer-motion"
 import Image from "next/image"
+import { SiInstagram, SiTiktok } from "react-icons/si"
 import { ImageSlider } from "./ImageSlider"
 import { PdfViewer } from "./PdfViewer"
 import { PdfThumbnail } from "./PdfThumbnail"
@@ -14,6 +15,7 @@ import { PdfThumbnail } from "./PdfThumbnail"
 export function FocusWidget({
   skill,
   onClose,
+
 }: {
   skill: string
   onClose: () => void
@@ -67,7 +69,7 @@ export function FocusWidget({
 
       <CardHeader className="flex items-center justify-between shrink-0 md:px-vp md:py-vg">
         <CardTitle className="text-lg md:text-v-title">
-          Projets · {skill}
+          {skill === "influence-litteraire" ? "Influence littéraire" : `Projets · ${skill}`}
         </CardTitle>
 
         <button
@@ -85,8 +87,108 @@ export function FocusWidget({
           Tous les projets de développement web réalisés en entreprise présents existent également sous forme de maquettes Figma et je suis la webdesigner qui les a conçues avant des les intégrer.
         </div>
       )}
-      <CardContent className="flex-1 min-h-0 overflow-hidden flex items-center justify-center">
-        {count === 0 ? (
+      <CardContent className={`flex-1 min-h-0 flex ${skill === "influence-litteraire" ? "overflow-y-auto items-start" : "overflow-hidden items-center justify-center"}`}>
+        {skill === "influence-litteraire" ? (
+          <div className="w-full h-full flex flex-col gap-5">
+
+            {/* Partenariats */}
+            <div>
+              <p className="text-[11px] font-medium text-black/35 uppercase tracking-widest mb-3">Partenariats annuels</p>
+              <div className="grid grid-cols-2 gap-2.5">
+                {[
+                  { name: "Adonia", logo: "/projects/adonia.webp", badge: "+1 an" },
+                  { name: "Albin Michel Stories", logo: "/projects/albinmichel.png" },
+                  { name: "Comet", logo: "/projects/comet.webp" },
+                  { name: "Vibes Poche", logo: "/projects/vibes-poche.jpg" },
+                ].map((p) => (
+                  <div
+                    key={p.name}
+                    className="relative group rounded-xl border border-black/8 bg-white px-5 py-4 flex items-center justify-center"
+                  >
+                    <div className="relative h-9 w-full">
+                      <Image
+                        src={p.logo}
+                        alt={p.name}
+                        fill
+                        className="object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+                      />
+                    </div>
+                    {p.badge && (
+                      <span className="absolute top-2 right-2 text-[9px] font-semibold bg-black text-white rounded-full px-1.5 py-0.5 leading-none">
+                        {p.badge}
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Grille Instagram */}
+            <div className="rounded-xl border border-black/8 overflow-hidden bg-white flex flex-col flex-1 min-h-0">
+              {/* Chrome Instagram */}
+              <div className="flex items-center justify-between px-3 py-1.5 border-b border-black/6">
+                <div className="flex items-center gap-1.5">
+                  <div className="h-5 w-5 rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 p-px shrink-0">
+                    <div className="h-full w-full rounded-full bg-white flex items-center justify-center">
+                      <SiInstagram className="h-2.5 w-2.5" />
+                    </div>
+                  </div>
+                  <span className="text-[11px] font-semibold">books_by_fau</span>
+                </div>
+                <a
+                  href="https://www.instagram.com/books_by_fau/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[10px] text-black/40 hover:text-black/70 transition-colors"
+                >
+                  Voir le profil ↗
+                </a>
+              </div>
+              {/* Grille 3×2 avec hauteur fixe */}
+              <div className="overflow-y-auto flex-1 min-h-0">
+                <div className="grid grid-cols-4 gap-px bg-black/8">
+                  {[
+                    "/projects/tempted%20slide%201.png",
+                    "/projects/Tempted%20revue.png",
+                    "/projects/damniatis-slide1.png",
+                    "/projects/Revue%20Damnatis.png",
+                    "/projects/Nos%20%C3%A2mes%20consum%C3%A9es.png",
+                    "/projects/NV-slide1.png",
+                    "/projects/Hope%20avis%20.png",
+                    "/projects/hope-slide1.png",
+                    "/projects/Les%20yeux%20verts.png",
+                    "/projects/UPPTS%20characters%E2%80%99%20Instagrams.png",
+                    "/projects/UPPTS-slide1.png",
+                    "/projects/Breathe%20characters%E2%80%99%20Instagrams.png",
+                  ].map((src, i) => (
+                    <div key={i} className="relative aspect-square bg-black/5">
+                      <Image src={src} alt="" fill className="object-cover" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Réseaux & podcast */}
+            <div className="flex flex-wrap gap-2 mt-auto shrink-0">
+              <a
+                href="https://www.tiktok.com/@books_by_fau"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-white px-3 py-1.5 text-sm font-medium hover:bg-black/5 transition-colors"
+              >
+                <SiTiktok className="h-3.5 w-3.5" />
+                @books_by_fau
+              </a>
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-white px-3 py-1.5 text-sm font-medium">
+                <Mic className="h-3.5 w-3.5 text-black/40" />
+                <span>Coin Lecture</span>
+                <span className="text-black/35 font-normal">· refonte en cours</span>
+              </div>
+            </div>
+
+          </div>
+        ) : count === 0 ? (
           <div className="relative w-full h-full">
             <div className="grid grid-cols-2 grid-rows-2 gap-2 md:gap-vg h-full blur-md pointer-events-none select-none">
               {Array.from({ length: 4 }).map((_, i) => (
