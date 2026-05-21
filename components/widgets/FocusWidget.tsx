@@ -87,8 +87,45 @@ export function FocusWidget({
           Tous les projets de développement web réalisés en entreprise présents existent également sous forme de maquettes Figma et je suis la webdesigner qui les a conçues avant des les intégrer.
         </div>
       )}
-      <CardContent className={`flex-1 min-h-0 flex ${skill === "influence-litteraire" ? "overflow-y-auto items-start" : "overflow-hidden items-center justify-center"}`}>
-        {skill === "influence-litteraire" ? (
+      <CardContent className={`flex-1 min-h-0 flex ${skill === "influence-litteraire" || skill === "canva" ? "overflow-y-auto items-start" : "overflow-hidden items-center justify-center"}`}>
+        {skill === "canva" ? (
+          <div className="w-full flex flex-col gap-4">
+            <div className="rounded-xl border border-black/8 bg-white px-5 py-4 flex flex-col gap-2">
+              <p className="text-[11px] font-medium text-black/35 uppercase tracking-widest">Démarche & création</p>
+              <p className="text-sm text-black/60 leading-relaxed">
+                J'utilise Canva pour créer l'ensemble des visuels de mon compte littéraire <span className="font-medium text-black">@books_by_fau</span>. Chaque publication est pensée avec une direction artistique propre à l'univers du livre présenté — palette, typographie et mise en scène cohérentes avec le genre littéraire. Je crée trois formats récurrents : des <span className="font-medium text-black/80">moodboards aesthetics</span> qui traduisent l'ambiance d'un livre, des <span className="font-medium text-black/80">revues annotées</span> qui présentent mon avis de façon graphique, et des <span className="font-medium text-black/80">carousels d'univers</span> avec slides de présentation et posts characters. Ce travail m'a appris à construire une identité visuelle de compte, à maintenir une ligne éditoriale cohérente et à créer du storytelling visuel.
+              </p>
+            </div>
+            <div className="columns-3 sm:columns-4 gap-2 space-y-2">
+              {[
+                "/projects/Better%20than%20the%20movies%20aesthetic.png",
+                "/projects/Revue%20Damnatis.png",
+                "/projects/UPPTS%20characters%E2%80%99%20Instagrams.png",
+                "/projects/BTM-slide1.png",
+                "/projects/Tempted%20revue.png",
+                "/projects/UPPTS-slide1.png",
+                "/projects/Aesthetic%20damnatis.png",
+                "/projects/Breathe%20avis.png",
+                "/projects/Breathe%20characters%E2%80%99%20Instagrams.png",
+                "/projects/tempted%20aesthetic.png",
+                "/projects/Hope%20avis%20.png",
+                "/projects/tempted%20slide%201.png",
+                "/projects/december.png",
+                "/projects/Nos%20%C3%A2mes%20consum%C3%A9es.png",
+                "/projects/damniatis-slide1.png",
+                "/projects/Nouveau%20livre%20aesthetic.jpg",
+                "/projects/Les%20yeux%20verts.png",
+                "/projects/NV-slide1.png",
+                "/projects/hope-slide1.png",
+                "/projects/chained.png",
+              ].map((src, i) => (
+                <div key={i} className="relative w-full overflow-hidden rounded-lg break-inside-avoid">
+                  <Image src={src} alt="" width={400} height={400} className="w-full h-auto object-cover" />
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : skill === "influence-litteraire" ? (
           <div className="w-full h-full flex flex-col gap-5">
 
             {/* Top : texte + podcast */}
