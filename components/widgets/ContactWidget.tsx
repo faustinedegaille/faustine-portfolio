@@ -37,9 +37,9 @@ export function ContactWidget() {
           </div>
 
           <SocialCard
-            href="mailto:faustine.degaille@gmail.com"
+            href="mailto:faustinedegaille59@gmail.com"
             label="Email"
-            value="faustine.degaille@gmail.com"
+            value="faustinedegaille59@gmail.com"
             bg="bg-neutral-100"
             icon={<Mail className="h-5 w-5 md:h-6 md:w-6 text-neutral-600" />}
             wide
